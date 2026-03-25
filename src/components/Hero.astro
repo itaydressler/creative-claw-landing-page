@@ -80,45 +80,36 @@ const platforms = [
         <img src="/hero/meme.png" alt="AI-generated meme sticker" class="w-full h-auto" />
       </div>
 
-      <!-- Central Claude conversation card -->
-      <div class="relative z-10 bg-surface rounded-[24px] shadow-2xl p-6 md:p-8 max-w-md mx-auto border border-cream-dark/30">
-        <!-- Claude header -->
-        <div class="flex items-center gap-3 mb-4 pb-4 border-b border-cream-dark/30">
-          <img src="/logo.png" alt="CreativeClaw" class="w-7 h-7" />
-          <span class="text-sm font-semibold text-charcoal">Claude + CreativeClaw</span>
-          <div class="ml-auto flex gap-1.5">
-            <div class="w-2.5 h-2.5 rounded-full bg-green/60"></div>
-            <div class="w-2.5 h-2.5 rounded-full bg-yellow/60"></div>
-            <div class="w-2.5 h-2.5 rounded-full bg-coral/60"></div>
-          </div>
-        </div>
-
-        <!-- User message -->
-        <div class="bg-cream rounded-[16px] p-4 mb-4">
-          <p class="text-sm text-charcoal leading-relaxed">
-            Create 3 on-brand Instagram stories for our spring product launch, a YouTube thumbnail, and a fun meme for our social channels.
+      <!-- Central Claude input card -->
+      <div class="relative z-10 bg-surface rounded-[24px] shadow-2xl max-w-xl mx-auto border border-cream-dark/40">
+        <!-- Input area -->
+        <div class="p-5 md:p-6">
+          <p class="text-base md:text-lg text-charcoal text-left leading-relaxed">
+            Create on-brand Instagram stories for our spring launch, a YouTube thumbnail, and a fun meme for social.
           </p>
         </div>
 
-        <!-- Claude response -->
-        <div class="flex items-start gap-3">
-          <div class="w-6 h-6 rounded-full bg-claude-orange/20 flex items-center justify-center flex-shrink-0 mt-0.5">
-            <div class="w-3 h-3 rounded-full bg-claude-orange"></div>
-          </div>
-          <div>
-            <p class="text-sm text-charcoal-light leading-relaxed">
-              I'll generate those using Flux Pro for the posts, Runway for video assets, and a fun illustrated style for the meme. All matching your brand palette...
-            </p>
-            <!-- Generating indicator -->
-            <div class="mt-3 flex items-center gap-2">
-              <div class="flex gap-1">
-                <div class="w-1.5 h-1.5 rounded-full bg-claude-orange animate-pulse"></div>
-                <div class="w-1.5 h-1.5 rounded-full bg-claude-orange animate-pulse" style="animation-delay: 0.2s"></div>
-                <div class="w-1.5 h-1.5 rounded-full bg-claude-orange animate-pulse" style="animation-delay: 0.4s"></div>
-              </div>
-              <span class="text-xs text-charcoal-light/60">Generating 5 assets...</span>
+        <!-- Bottom bar -->
+        <div class="px-5 md:px-6 pb-4 md:pb-5 flex items-center justify-between">
+          <!-- Left: attachment + add -->
+          <div class="flex items-center gap-3">
+            <div class="flex items-center gap-2 border border-cream-dark/50 rounded-full px-3 py-1.5">
+              <!-- Folder icon -->
+              <svg class="w-4 h-4 text-charcoal-light" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 12.75V12A2.25 2.25 0 014.5 9.75h15A2.25 2.25 0 0121.75 12v.75m-8.69-6.44l-2.12-2.12a1.5 1.5 0 00-1.061-.44H4.5A2.25 2.25 0 002.25 6v12a2.25 2.25 0 002.25 2.25h15A2.25 2.25 0 0021.75 18V9a2.25 2.25 0 00-2.25-2.25h-5.379a1.5 1.5 0 01-1.06-.44z" />
+              </svg>
+              <span class="text-sm text-charcoal">Brand assets</span>
             </div>
+            <span class="text-xl text-charcoal-light/40 leading-none">+</span>
           </div>
+
+          <!-- Right: send button -->
+          <button class="bg-claude-orange text-white rounded-xl px-5 py-2.5 text-sm font-semibold flex items-center gap-2 hover:bg-claude-orange/90 transition-colors">
+            Let's go
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+            </svg>
+          </button>
         </div>
       </div>
     </div>
