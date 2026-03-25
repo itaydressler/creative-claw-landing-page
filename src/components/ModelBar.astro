@@ -1,27 +1,66 @@
 ---
 const models = [
-  'Flux',
+  'Flux Pro',
   'Midjourney',
   'DALL-E',
   'Runway',
   'ElevenLabs',
-  'Fal.ai',
   'Stable Diffusion',
   'Kling',
+  'Seedance',
+  'Nano Banana Pro',
+  'Hunyuan',
+  'Minimax',
+  'Luma',
+  'Recraft',
+  'AuraSR',
+  'Ideogram',
+  'Whisper',
 ];
 ---
 
-<section class="py-16 px-6 border-y border-cream-dark/30">
+<section class="py-16 px-6 border-y border-cream-dark/30 overflow-hidden">
   <div class="mx-auto max-w-[1200px]">
     <p class="text-center text-sm font-semibold text-charcoal-light tracking-widest uppercase mb-10">
       Powered by the best AI models
     </p>
-    <div class="flex flex-wrap items-center justify-center gap-8 md:gap-14">
-      {models.map(model => (
-        <div class="flex items-center justify-center px-4 py-2 opacity-40 hover:opacity-70 transition-opacity">
-          <span class="font-display text-xl md:text-2xl text-charcoal tracking-tight">{model}</span>
-        </div>
+  </div>
+
+  <!-- Marquee with fade edges -->
+  <div class="relative">
+    <!-- Fade left -->
+    <div class="absolute left-0 top-0 bottom-0 w-24 md:w-40 bg-gradient-to-r from-cream to-transparent z-10 pointer-events-none"></div>
+    <!-- Fade right -->
+    <div class="absolute right-0 top-0 bottom-0 w-24 md:w-40 bg-gradient-to-l from-cream to-transparent z-10 pointer-events-none"></div>
+
+    <!-- Scrolling track -->
+    <div class="marquee-track flex items-center gap-10 md:gap-14 whitespace-nowrap">
+      {/* Duplicate the list for seamless loop */}
+      {[...models, ...models].map(model => (
+        <span class="font-display text-xl md:text-2xl text-charcoal tracking-tight opacity-40 flex-shrink-0">
+          {model}
+        </span>
       ))}
     </div>
   </div>
 </section>
+
+<style>
+  .marquee-track {
+    animation: marquee 30s linear infinite;
+    width: max-content;
+  }
+
+  .marquee-track:hover {
+    animation-play-state: paused;
+  }
+
+  @keyframes marquee {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+</style>
