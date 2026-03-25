@@ -49,10 +49,19 @@
 
       <!-- Product Videos with Remotion -->
       <div class="md:col-span-5 bg-green rounded-[24px] p-7 md:p-8 relative overflow-hidden min-h-[320px] md:min-h-[380px] flex flex-col justify-between">
-        <!-- Image slot -->
+        <!-- Video -->
         <div class="flex-1 relative flex items-center justify-center mb-4">
-          <div class="w-full h-full min-h-[160px] rounded-[16px] bg-white/15 flex items-center justify-center">
-            <span class="text-charcoal/30 text-sm font-semibold">Asset: Remotion video frame</span>
+          <div class="w-full rounded-[16px] overflow-hidden shadow-lg">
+            <video
+              autoplay
+              loop
+              muted
+              playsinline
+              poster="/use-cases/product-video-poster.png"
+              class="w-full h-auto"
+            >
+              <source src="/use-cases/product-video.mp4" type="video/mp4" />
+            </video>
           </div>
         </div>
         <!-- Text -->
