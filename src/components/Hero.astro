@@ -31,7 +31,7 @@
     </div>
 
     <!-- Hero media area -->
-    <div class="mt-16 relative mx-auto max-w-4xl">
+    <div class="mt-16 relative mx-auto max-w-4xl" id="hero-media">
       <!-- Decorative Claude-style lines -->
       <svg class="absolute -top-8 -left-12 w-24 h-24 text-claude-orange/20 hidden md:block" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="2">
         <path d="M20,80 Q50,10 80,50" stroke-linecap="round" />
@@ -52,41 +52,32 @@
         <circle cx="25" cy="48" r="4" fill="currentColor" />
       </svg>
 
-      <!-- Floating image: Social Post (top-left) -->
-      <div class="absolute -top-6 -left-8 md:-left-16 w-36 md:w-48 rotate-[-6deg] z-20 rounded-[16px] overflow-hidden shadow-2xl hover:rotate-[-2deg] hover:scale-105 transition-transform duration-500">
+      <!-- Floating images — start hidden, animated in -->
+      <div id="float-social" class="absolute -top-6 -left-8 md:-left-16 w-36 md:w-48 rotate-[-6deg] z-20 rounded-[16px] overflow-hidden shadow-2xl opacity-0 scale-50">
         <img src="/hero/social-post.jpg" alt="AI-generated social media post" class="w-full h-auto" />
       </div>
-
-      <!-- Floating image: YouTube Thumbnail (top-right) -->
-      <div class="absolute -top-8 -right-4 md:-right-12 w-40 md:w-52 rotate-[5deg] z-20 rounded-[16px] overflow-hidden shadow-2xl hover:rotate-[2deg] hover:scale-105 transition-transform duration-500">
+      <div id="float-thumb" class="absolute -top-8 -right-4 md:-right-12 w-40 md:w-52 rotate-[5deg] z-20 rounded-[16px] overflow-hidden shadow-2xl opacity-0 scale-50">
         <img src="/hero/thumbnail.jpg" alt="AI-generated YouTube thumbnail" class="w-full h-auto" />
       </div>
-
-      <!-- Floating image: Product (bottom-left) -->
-      <div class="absolute -bottom-8 -left-4 md:left-8 w-32 md:w-40 z-20 drop-shadow-2xl hover:scale-110 transition-transform duration-500">
+      <div id="float-product" class="absolute -bottom-8 -left-4 md:left-8 w-32 md:w-40 z-20 drop-shadow-2xl opacity-0 scale-50">
         <img src="/hero/product.png" alt="AI-generated product shot" class="w-full h-auto" />
       </div>
-
-      <!-- Floating image: Meme (bottom-right) -->
-      <div class="absolute -bottom-10 -right-2 md:right-4 w-28 md:w-36 rotate-[6deg] z-20 drop-shadow-2xl hover:rotate-[2deg] hover:scale-110 transition-transform duration-500">
+      <div id="float-meme" class="absolute -bottom-10 -right-2 md:right-4 w-28 md:w-36 rotate-[6deg] z-20 drop-shadow-2xl opacity-0 scale-50">
         <img src="/hero/meme.png" alt="AI-generated meme sticker" class="w-full h-auto" />
       </div>
 
       <!-- Central Claude input card -->
       <div class="relative z-10 bg-surface rounded-[24px] shadow-2xl max-w-xl mx-auto border border-cream-dark/40">
         <!-- Input area -->
-        <div class="p-5 md:p-6">
-          <p class="text-base md:text-lg text-charcoal text-left leading-relaxed">
-            Create on-brand Instagram stories for our spring launch, a YouTube thumbnail, and a fun meme for social.
-          </p>
+        <div class="p-5 md:p-6 min-h-[80px]">
+          <p id="hero-typing" class="text-base md:text-lg text-charcoal text-left leading-relaxed"></p>
+          <span id="hero-cursor" class="inline-block w-[2px] h-5 bg-charcoal/60 align-middle ml-0.5 animate-pulse"></span>
         </div>
 
         <!-- Bottom bar -->
         <div class="px-5 md:px-6 pb-4 md:pb-5 flex items-center justify-between">
-          <!-- Left: attachment + add -->
           <div class="flex items-center gap-3">
             <div class="flex items-center gap-2 border border-cream-dark/50 rounded-full px-3 py-1.5">
-              <!-- Folder icon -->
               <svg class="w-4 h-4 text-charcoal-light" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 12.75V12A2.25 2.25 0 014.5 9.75h15A2.25 2.25 0 0121.75 12v.75m-8.69-6.44l-2.12-2.12a1.5 1.5 0 00-1.061-.44H4.5A2.25 2.25 0 002.25 6v12a2.25 2.25 0 002.25 2.25h15A2.25 2.25 0 0021.75 18V9a2.25 2.25 0 00-2.25-2.25h-5.379a1.5 1.5 0 01-1.06-.44z" />
               </svg>
@@ -95,12 +86,14 @@
             <span class="text-xl text-charcoal-light/40 leading-none">+</span>
           </div>
 
-          <!-- Right: send button -->
-          <button class="bg-claude-orange text-white rounded-xl px-5 py-2.5 text-sm font-semibold flex items-center gap-2 hover:bg-claude-orange/90 transition-colors">
-            Let's go
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+          <!-- Send button — starts disabled -->
+          <button id="hero-send-btn" class="bg-cream-dark/50 text-charcoal-light/50 rounded-xl px-5 py-2.5 text-sm font-semibold flex items-center gap-2 transition-all duration-300 cursor-default">
+            <span id="btn-text">Let's go</span>
+            <svg id="btn-arrow" class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
               <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
             </svg>
+            <!-- Loading spinner (hidden initially) -->
+            <img id="btn-loader" src="/icons/claude.svg" alt="" class="w-5 h-5 hidden" />
           </button>
         </div>
       </div>
@@ -128,3 +121,124 @@
     </div>
   </div>
 </section>
+
+<script>
+  import gsap from 'gsap';
+
+  const PROMPT = "Create on-brand Instagram Reels for our spring launch, a YouTube thumbnail, and a fun meme for social.";
+
+  function runHeroAnimation() {
+    const typingEl = document.getElementById('hero-typing');
+    const cursorEl = document.getElementById('hero-cursor');
+    const sendBtn = document.getElementById('hero-send-btn');
+    const btnText = document.getElementById('btn-text');
+    const btnArrow = document.getElementById('btn-arrow');
+    const btnLoader = document.getElementById('btn-loader');
+
+    if (!typingEl || !sendBtn) return;
+
+    const tl = gsap.timeline({ delay: 0.8 });
+
+    // Phase 1: Typing animation
+    let charIndex = 0;
+    tl.to({}, {
+      duration: PROMPT.length * 0.03,
+      onUpdate: function() {
+        const progress = this.progress();
+        const newIndex = Math.floor(progress * PROMPT.length);
+        if (newIndex > charIndex) {
+          charIndex = newIndex;
+          typingEl.textContent = PROMPT.slice(0, charIndex);
+        }
+      },
+      onComplete: () => {
+        typingEl.textContent = PROMPT;
+      },
+      ease: 'none',
+    });
+
+    // Phase 2: Button activates (turns orange)
+    tl.to(sendBtn, {
+      duration: 0.3,
+      onStart: () => {
+        sendBtn.classList.remove('bg-cream-dark/50', 'text-charcoal-light/50', 'cursor-default');
+        sendBtn.classList.add('bg-claude-orange', 'text-white', 'cursor-pointer');
+      },
+      ease: 'power2.out',
+    }, '+=0.3');
+
+    // Phase 3: Button "clicked" — show loading
+    tl.to(sendBtn, {
+      scale: 0.95,
+      duration: 0.1,
+      yoyo: true,
+      repeat: 1,
+      ease: 'power2.inOut',
+      onStart: () => {
+        // Hide cursor
+        if (cursorEl) cursorEl.style.display = 'none';
+        // Switch to loading state
+        btnText!.textContent = 'Creating';
+        btnArrow!.classList.add('hidden');
+        btnLoader!.classList.remove('hidden');
+        // Spin the loader
+        gsap.to(btnLoader, { rotation: 360, duration: 1, repeat: -1, ease: 'linear' });
+      },
+    }, '+=0.5');
+
+    // Phase 4: Animate in floating images one by one
+    const floatTargets = [
+      { id: '#float-social', x: -40, y: -30 },
+      { id: '#float-thumb', x: 40, y: -30 },
+      { id: '#float-product', x: -30, y: 30 },
+      { id: '#float-meme', x: 30, y: 30 },
+    ];
+
+    floatTargets.forEach((target, i) => {
+      tl.fromTo(target.id, {
+        opacity: 0,
+        scale: 0.3,
+        x: target.x,
+        y: target.y,
+      }, {
+        opacity: 1,
+        scale: 1,
+        x: 0,
+        y: 0,
+        duration: 0.6,
+        ease: 'back.out(1.7)',
+      }, `-=0.35`);
+    });
+
+    // Phase 5: Button returns to normal
+    tl.to({}, {
+      duration: 0.01,
+      onComplete: () => {
+        gsap.killTweensOf(btnLoader);
+        btnText!.textContent = 'Let\'s go';
+        btnArrow!.classList.remove('hidden');
+        btnLoader!.classList.add('hidden');
+      },
+    }, '+=0.3');
+
+    // Phase 6: Gentle floating bob on all images
+    tl.add(() => {
+      floatTargets.forEach((target, i) => {
+        gsap.to(target.id, {
+          y: '+=8',
+          duration: 2 + i * 0.3,
+          repeat: -1,
+          yoyo: true,
+          ease: 'sine.inOut',
+        });
+      });
+    });
+  }
+
+  // Run when DOM is ready
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', runHeroAnimation);
+  } else {
+    runHeroAnimation();
+  }
+</script>
