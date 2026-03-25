@@ -1,0 +1,34 @@
+---
+const links = [
+  { label: 'Use Cases', href: '#use-cases' },
+  { label: 'How It Works', href: '#how-it-works' },
+  { label: 'Models', href: '#models' },
+  { label: 'Pricing', href: '#pricing' },
+];
+---
+
+<nav class="sticky top-0 z-50 bg-cream/90 backdrop-blur-md border-b border-cream-dark/40">
+  <div class="mx-auto max-w-[1200px] px-6 flex items-center justify-between h-16">
+    <!-- Logo -->
+    <a href="/" class="font-display text-xl tracking-tight text-charcoal">
+      Creative<span class="text-coral">Claw</span>
+    </a>
+
+    <!-- Links (hidden on mobile) -->
+    <div class="hidden md:flex items-center gap-8">
+      {links.map(link => (
+        <a href={link.href} class="text-sm font-semibold text-charcoal-light hover:text-charcoal transition-colors">
+          {link.label}
+        </a>
+      ))}
+    </div>
+
+    <!-- CTA -->
+    <a
+      href="#waitlist"
+      class="rounded-full bg-charcoal text-white text-sm font-semibold px-6 py-2.5 hover:bg-charcoal/90 transition-colors"
+    >
+      Join Waitlist
+    </a>
+  </div>
+</nav>

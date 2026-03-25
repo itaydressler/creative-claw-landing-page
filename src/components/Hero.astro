@@ -1,0 +1,93 @@
+---
+const platforms = [
+  { name: 'Instagram', icon: 'IG' },
+  { name: 'TikTok', icon: 'TT' },
+  { name: 'YouTube', icon: 'YT' },
+  { name: 'Facebook', icon: 'FB' },
+  { name: 'LinkedIn', icon: 'LI' },
+  { name: 'X', icon: 'X' },
+];
+---
+
+<section class="py-20 md:py-32 px-6">
+  <div class="mx-auto max-w-[1200px] text-center">
+    <!-- Heading -->
+    <h1 class="font-display text-[2.5rem] md:text-[4rem] leading-[0.9] tracking-[-0.03em] text-charcoal max-w-3xl mx-auto">
+      Create On-Brand
+      <br />Content,
+      <br /><span class="text-coral">Inside Claude.</span>
+    </h1>
+
+    <!-- Subheading -->
+    <p class="mt-8 text-lg md:text-xl text-charcoal-light max-w-2xl mx-auto leading-relaxed">
+      One MCP. Every top AI model. Generate images, video, audio, 3D — all on brand, all inside Claude.
+    </p>
+
+    <!-- CTAs -->
+    <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
+      <a
+        href="#waitlist"
+        class="rounded-full bg-charcoal text-white text-base font-semibold px-8 py-4 hover:bg-charcoal/90 transition-colors"
+      >
+        Join the Waitlist
+      </a>
+      <a
+        href="#use-cases"
+        class="rounded-full border border-cream-dark text-charcoal text-base font-semibold px-8 py-4 hover:bg-cream-dark/30 transition-colors"
+      >
+        See What You Can Create
+      </a>
+    </div>
+
+    <!-- Hero media placeholder -->
+    <div class="mt-16 relative mx-auto max-w-4xl">
+      <div class="bg-pink/30 rounded-[20px] aspect-[16/10] flex items-center justify-center overflow-hidden relative">
+        <!-- Mock conversation / floating outputs -->
+        <div class="absolute -top-4 -left-4 w-40 h-40 bg-purple rounded-[16px] rotate-[-6deg] flex items-center justify-center text-white/60 text-sm font-semibold shadow-lg">
+          Social Post
+        </div>
+        <div class="absolute -top-6 right-12 w-36 h-48 bg-orange rounded-[16px] rotate-[4deg] flex items-center justify-center text-white/60 text-sm font-semibold shadow-lg">
+          Video
+        </div>
+        <div class="absolute -bottom-4 left-16 w-44 h-32 bg-blue rounded-[16px] rotate-[3deg] flex items-center justify-center text-white/60 text-sm font-semibold shadow-lg">
+          Product Shot
+        </div>
+        <div class="absolute -bottom-6 -right-4 w-36 h-36 bg-yellow rounded-[16px] rotate-[-5deg] flex items-center justify-center text-charcoal/40 text-sm font-semibold shadow-lg">
+          Thumbnail
+        </div>
+        <div class="relative z-10 bg-surface rounded-[16px] shadow-2xl p-6 max-w-sm text-left">
+          <div class="flex items-center gap-2 mb-3">
+            <div class="w-6 h-6 rounded-full bg-coral/30"></div>
+            <span class="text-xs font-semibold text-charcoal-light">Claude + CreativeClaw</span>
+          </div>
+          <p class="text-sm text-charcoal-light leading-relaxed">
+            "Create 3 on-brand Instagram stories for our spring product launch..."
+          </p>
+          <div class="mt-4 flex gap-2">
+            <div class="w-16 h-16 bg-pink/40 rounded-lg"></div>
+            <div class="w-16 h-16 bg-orange/40 rounded-lg"></div>
+            <div class="w-16 h-16 bg-purple/40 rounded-lg"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Works with badge -->
+    <div class="mt-12 flex flex-col items-center gap-4">
+      <p class="text-sm text-charcoal-light font-semibold tracking-wide uppercase">
+        Works with Claude Desktop, Claude Code & OpenClaw
+      </p>
+      <!-- Platform icons -->
+      <div class="flex items-center gap-6 mt-2">
+        {platforms.map(p => (
+          <div class="flex flex-col items-center gap-1 opacity-50 hover:opacity-100 transition-opacity">
+            <div class="w-8 h-8 rounded-lg bg-cream-dark flex items-center justify-center text-xs font-semibold text-charcoal-light">
+              {p.icon}
+            </div>
+            <span class="text-[10px] text-charcoal-light">{p.name}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>

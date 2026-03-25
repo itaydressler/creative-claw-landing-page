@@ -1,0 +1,56 @@
+---
+const steps = [
+  {
+    number: '01',
+    title: 'Add the MCP URL',
+    description: 'Paste one URL into Claude Desktop or Claude Code. That\'s the entire setup.',
+    placeholder: 'MCP Settings Screenshot',
+    bg: 'bg-blue/30',
+  },
+  {
+    number: '02',
+    title: 'Ask Claude to Create',
+    description: 'Describe what you need — "make me 3 Instagram stories for our spring launch." Claude picks the best model and generates on-brand content.',
+    placeholder: 'Claude Conversation',
+    bg: 'bg-pink/30',
+  },
+  {
+    number: '03',
+    title: 'Iterate, Compose, Publish',
+    description: 'Generate variants with different models, remove backgrounds, add voiceover, create Remotion videos — all in one thread. Export ready for every platform.',
+    placeholder: 'Creative Workflow',
+    bg: 'bg-orange/30',
+  },
+];
+---
+
+<section id="how-it-works" class="py-20 md:py-28 px-6">
+  <div class="mx-auto max-w-[1200px]">
+    <h2 class="font-display text-[2rem] md:text-[3.125rem] leading-[1] tracking-[-0.02em] text-charcoal text-center">
+      How CreativeClaw Works
+    </h2>
+
+    <div class="mt-16 space-y-20 md:space-y-28">
+      {steps.map((step, i) => (
+        <div class={`grid md:grid-cols-2 gap-10 md:gap-16 items-center ${i % 2 === 1 ? 'md:direction-rtl' : ''}`}>
+          <!-- Image -->
+          <div class={`${i % 2 === 1 ? 'md:order-2' : ''}`}>
+            <div class={`${step.bg} rounded-[20px] aspect-[4/3] flex items-center justify-center`}>
+              <span class="text-charcoal/30 font-semibold">{step.placeholder}</span>
+            </div>
+          </div>
+          <!-- Text -->
+          <div class={`${i % 2 === 1 ? 'md:order-1' : ''}`}>
+            <span class="font-mono text-sm text-coral font-semibold">{step.number}</span>
+            <h3 class="mt-3 font-semibold text-xl md:text-[1.625rem] leading-[1.2] tracking-[-0.01em] text-charcoal">
+              {step.title}
+            </h3>
+            <p class="mt-4 text-base md:text-lg text-charcoal-light leading-relaxed">
+              {step.description}
+            </p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

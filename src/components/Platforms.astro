@@ -1,0 +1,37 @@
+---
+const platforms = [
+  { name: 'Instagram', formats: 'Reels, Stories, Posts', bg: 'bg-pink' },
+  { name: 'TikTok', formats: 'Short-form video', bg: 'bg-coral' },
+  { name: 'YouTube', formats: 'Thumbnails, Shorts', bg: 'bg-orange' },
+  { name: 'Facebook', formats: 'Ads, Posts', bg: 'bg-blue' },
+  { name: 'LinkedIn', formats: 'Professional content', bg: 'bg-purple' },
+  { name: 'X / Twitter', formats: 'Graphics, threads', bg: 'bg-charcoal text-white' },
+  { name: 'Email', formats: 'Campaign assets, headers', bg: 'bg-green' },
+];
+---
+
+<section class="py-20 md:py-28 px-6">
+  <div class="mx-auto max-w-[1200px]">
+    <h2 class="font-display text-[2rem] md:text-[3.125rem] leading-[1] tracking-[-0.02em] text-charcoal text-center">
+      Create for Every Platform
+    </h2>
+    <p class="mt-5 text-lg text-charcoal-light text-center max-w-2xl mx-auto">
+      One conversation. Content sized and optimized for wherever your audience lives.
+    </p>
+
+    <div class="mt-14 overflow-x-auto scrollbar-hide">
+      <div class="flex gap-4 px-2 pb-4" style="width: max-content;">
+        {platforms.map(p => (
+          <div class={`${p.bg} rounded-[20px] w-[160px] md:w-[180px] flex-shrink-0 p-5 flex flex-col items-center text-center min-h-[160px] justify-center`}>
+            <!-- Logo placeholder -->
+            <div class="w-14 h-14 rounded-[12px] bg-white/25 mb-4 flex items-center justify-center">
+              <span class="text-lg font-display font-semibold opacity-60">{p.name.charAt(0)}</span>
+            </div>
+            <h3 class="font-semibold text-sm">{p.name}</h3>
+            <p class="mt-1 text-xs opacity-70">{p.formats}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>

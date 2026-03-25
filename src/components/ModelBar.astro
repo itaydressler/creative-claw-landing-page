@@ -1,0 +1,27 @@
+---
+const models = [
+  'Flux',
+  'Midjourney',
+  'DALL-E',
+  'Runway',
+  'ElevenLabs',
+  'Fal.ai',
+  'Stable Diffusion',
+  'Kling',
+];
+---
+
+<section class="py-16 px-6 border-y border-cream-dark/30">
+  <div class="mx-auto max-w-[1200px]">
+    <p class="text-center text-sm font-semibold text-charcoal-light tracking-widest uppercase mb-10">
+      Powered by the best AI models
+    </p>
+    <div class="flex flex-wrap items-center justify-center gap-8 md:gap-14">
+      {models.map(model => (
+        <div class="flex items-center justify-center px-4 py-2 opacity-40 hover:opacity-70 transition-opacity">
+          <span class="font-display text-xl md:text-2xl text-charcoal tracking-tight">{model}</span>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

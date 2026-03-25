@@ -1,0 +1,121 @@
+---
+const useCases = [
+  {
+    title: 'Short-Form Video',
+    description: 'Create engaging Reels, TikToks & Shorts with voiceover, music & narration',
+    bg: 'bg-orange',
+    platforms: ['TikTok', 'Instagram', 'YouTube'],
+  },
+  {
+    title: 'Product Videos with Remotion',
+    description: 'Generate programmatic product videos with React + Remotion — fully customizable, on-brand templates',
+    bg: 'bg-coral',
+    platforms: [],
+  },
+  {
+    title: 'Social Media Posts',
+    description: 'Design on-brand posts for every platform in seconds',
+    bg: 'bg-pink',
+    platforms: ['Facebook', 'LinkedIn', 'X', 'Instagram'],
+  },
+  {
+    title: 'Memes & Viral Content',
+    description: 'Create memes, trending formats, and shareable content instantly',
+    bg: 'bg-yellow',
+    platforms: [],
+  },
+  {
+    title: 'YouTube Thumbnails',
+    description: 'Eye-catching thumbnails that drive clicks with custom graphics and text',
+    bg: 'bg-blue',
+    platforms: ['YouTube'],
+  },
+  {
+    title: 'Ad Creatives',
+    description: 'High-converting video & image ads for Facebook, Instagram, and YouTube',
+    bg: 'bg-purple',
+    platforms: ['Facebook', 'Instagram', 'YouTube'],
+  },
+  {
+    title: 'Email Campaign Assets',
+    description: 'Headers, banners, and visuals for personalized email campaigns',
+    bg: 'bg-green',
+    platforms: [],
+  },
+  {
+    title: 'Logo Animations',
+    description: 'Animate your logo with burst effects, textures, and motion',
+    bg: 'bg-coral',
+    platforms: [],
+  },
+  {
+    title: 'UGC-Style Content',
+    description: 'Authentic-looking UGC videos that explain, entertain, or sell',
+    bg: 'bg-pink',
+    platforms: ['TikTok', 'Instagram'],
+  },
+  {
+    title: 'Background Removal',
+    description: 'Clean product shots and compositing in one step',
+    bg: 'bg-blue',
+    platforms: [],
+  },
+  {
+    title: 'Print-on-Demand',
+    description: 'Custom graphics for t-shirts, mugs, posters & merch',
+    bg: 'bg-orange',
+    platforms: [],
+  },
+  {
+    title: 'Infographics',
+    description: 'Data-driven visuals with charts, icons & storytelling',
+    bg: 'bg-purple',
+    platforms: [],
+  },
+];
+---
+
+<section id="use-cases" class="py-20 md:py-28 px-6">
+  <div class="mx-auto max-w-[1200px]">
+    <h2 class="font-display text-[2rem] md:text-[3.125rem] leading-[1] tracking-[-0.02em] text-charcoal text-center">
+      What Will You Create?
+    </h2>
+    <p class="mt-5 text-lg text-charcoal-light text-center max-w-2xl mx-auto">
+      From social content to product videos — all on brand, all in one conversation.
+    </p>
+  </div>
+
+  <!-- Carousel -->
+  <div class="mt-14 overflow-x-auto scrollbar-hide">
+    <div class="flex gap-6 px-6 pb-4" style="width: max-content;">
+      {useCases.map(uc => (
+        <div class={`${uc.bg} rounded-[20px] w-[280px] md:w-[320px] flex-shrink-0 p-6 flex flex-col justify-between min-h-[320px] relative overflow-hidden group`}>
+          <!-- Media placeholder -->
+          <div class="flex-1 flex items-center justify-center mb-4">
+            <div class="w-full h-40 rounded-[12px] bg-white/20 flex items-center justify-center">
+              <span class="text-white/50 text-sm font-semibold">Media placeholder</span>
+            </div>
+          </div>
+          <!-- Content -->
+          <div>
+            <h3 class="font-semibold text-lg text-charcoal">{uc.title}</h3>
+            <p class="mt-1 text-sm text-charcoal/70 leading-relaxed">{uc.description}</p>
+            {uc.platforms.length > 0 && (
+              <div class="mt-3 flex gap-2">
+                {uc.platforms.map(p => (
+                  <span class="text-[10px] font-semibold bg-white/30 rounded-full px-2 py-0.5 text-charcoal/70">{p}</span>
+                ))}
+              </div>
+            )}
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+
+  <div class="mt-10 text-center">
+    <a href="#waitlist" class="inline-block rounded-full border border-cream-dark text-charcoal text-sm font-semibold px-8 py-3 hover:bg-cream-dark/30 transition-colors">
+      See All Use Cases
+    </a>
+  </div>
+</section>

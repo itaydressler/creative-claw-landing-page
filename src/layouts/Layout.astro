@@ -6,7 +6,7 @@ interface Props {
   description?: string;
 }
 
-const { title, description = 'CreativeClaw - AI-powered creative tools' } = Astro.props;
+const { title, description = 'CreativeClaw — The creative studio inside Claude. Generate images, video, audio, 3D with every top AI model.' } = Astro.props;
 ---
 
 <!doctype html>
@@ -17,9 +17,12 @@ const { title, description = 'CreativeClaw - AI-powered creative tools' } = Astr
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={description} />
     <meta name="generator" content={Astro.generator} />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Fragment+Mono&display=swap" rel="stylesheet" />
     <title>{title}</title>
   </head>
-  <body class="min-h-screen bg-neutral-950 text-white antialiased">
+  <body class="min-h-screen antialiased">
     <slot />
   </body>
 </html>

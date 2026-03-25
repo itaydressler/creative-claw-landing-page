@@ -1,12 +1,36 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import Nav from '../components/Nav.astro';
+import Hero from '../components/Hero.astro';
+import ModelBar from '../components/ModelBar.astro';
+import UseCases from '../components/UseCases.astro';
+import OnBrand from '../components/OnBrand.astro';
+import HowItWorks from '../components/HowItWorks.astro';
+import ModelsGrid from '../components/ModelsGrid.astro';
+import Platforms from '../components/Platforms.astro';
+import ValueProps from '../components/ValueProps.astro';
+import Showcase from '../components/Showcase.astro';
+import Pricing from '../components/Pricing.astro';
+import FAQ from '../components/FAQ.astro';
+import FinalCTA from '../components/FinalCTA.astro';
+import Footer from '../components/Footer.astro';
 ---
 
-<Layout title="CreativeClaw">
-  <main class="flex min-h-screen flex-col items-center justify-center px-4">
-    <h1 class="text-5xl font-bold tracking-tight sm:text-7xl">
-      Creative<span class="text-amber-400">Claw</span>
-    </h1>
-    <p class="mt-6 text-lg text-neutral-400">Coming soon</p>
+<Layout title="CreativeClaw — The Creative Studio Inside Claude">
+  <Nav />
+  <main>
+    <Hero />
+    <ModelBar />
+    <UseCases />
+    <OnBrand />
+    <HowItWorks />
+    <ModelsGrid />
+    <Platforms />
+    <ValueProps />
+    <Showcase />
+    <Pricing />
+    <FAQ />
+    <FinalCTA />
   </main>
+  <Footer />
 </Layout>

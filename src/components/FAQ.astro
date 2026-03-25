@@ -1,0 +1,66 @@
+---
+const faqs = [
+  {
+    question: 'What is an MCP?',
+    answer: 'MCP (Model Context Protocol) is a standard that lets AI assistants like Claude connect to external tools and services. CreativeClaw is a remote MCP server — you add one URL to Claude, and it gains access to all our creative tools.',
+  },
+  {
+    question: 'Which AI models can I use?',
+    answer: 'CreativeClaw gives you access to Flux, Midjourney, DALL-E, Runway, ElevenLabs, Stable Diffusion, and many more models via Fal.ai. New models are added regularly.',
+  },
+  {
+    question: 'Do I need a Claude Pro subscription?',
+    answer: 'CreativeClaw works with any Claude plan that supports MCP connections, including Claude Desktop and Claude Code. Your Claude subscription is separate from CreativeClaw usage.',
+  },
+  {
+    question: 'How does pricing work?',
+    answer: 'CreativeClaw uses usage-based pricing — you pay only for what you generate. No monthly subscriptions or commitments. Detailed pricing will be available when we launch.',
+  },
+  {
+    question: 'Can I use CreativeClaw with OpenClaw?',
+    answer: 'Yes! CreativeClaw works with any MCP-compatible client, including Claude Desktop, Claude Code, and OpenClaw.',
+  },
+  {
+    question: 'Where are my generated files stored?',
+    answer: 'All generated media is stored on CreativeClaw\'s CDN. Each file gets a permanent URL you can use anywhere — in documents, websites, presentations, or social media.',
+  },
+  {
+    question: 'What is Remotion and how does video generation work?',
+    answer: 'Remotion is a React-based framework for creating programmatic videos. CreativeClaw can generate Remotion video projects with on-brand templates, animations, and compositions that you can customize and render.',
+  },
+];
+---
+
+<section id="faq" class="py-20 md:py-28 px-6">
+  <div class="mx-auto max-w-[1200px]">
+    <div class="grid md:grid-cols-[1fr_1.5fr] gap-12 md:gap-16">
+      <!-- Left: Heading -->
+      <div>
+        <h2 class="font-display text-[2rem] md:text-[3.125rem] leading-[1] tracking-[-0.02em] text-charcoal">
+          Frequently Asked Questions
+        </h2>
+        <div class="mt-8 bg-charcoal rounded-[16px] p-6 inline-flex items-center gap-4">
+          <span class="text-white/80 text-sm">Have a question?</span>
+          <a href="mailto:hello@creativeclaw.co" class="rounded-full bg-surface text-charcoal text-sm font-semibold px-4 py-2 hover:bg-white transition-colors">
+            Contact Us
+          </a>
+        </div>
+      </div>
+
+      <!-- Right: Accordion -->
+      <div class="space-y-3">
+        {faqs.map((faq, i) => (
+          <details class="group bg-cream-dark/30 rounded-[12px] overflow-hidden">
+            <summary class="flex items-center justify-between cursor-pointer p-5 hover:bg-cream-dark/50 transition-colors">
+              <span class="font-semibold text-charcoal pr-4">{faq.question}</span>
+              <span class="text-charcoal-light flex-shrink-0 group-open:rotate-45 transition-transform text-xl">+</span>
+            </summary>
+            <div class="px-5 pb-5 text-charcoal-light leading-relaxed">
+              {faq.answer}
+            </div>
+          </details>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>

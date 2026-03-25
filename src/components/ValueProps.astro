@@ -1,0 +1,52 @@
+---
+const props = [
+  {
+    title: 'Always On Brand',
+    description: 'Define your brand once. Every asset Claude creates matches your colors, fonts, style, and tone. No more off-brand AI output.',
+    placeholder: 'Brand consistency visual',
+    bg: 'bg-purple/20',
+  },
+  {
+    title: 'Close the Loop',
+    description: 'Stop bouncing between Claude, ChatGPT, Midjourney, Canva, and Runway. Do everything inside Claude — from brief to final asset.',
+    placeholder: 'Unified workflow visual',
+    bg: 'bg-orange/20',
+  },
+  {
+    title: 'One Account, Every Model',
+    description: 'No more juggling APIs, billing, and credentials. One MCP, one login, access to Flux, Midjourney, DALL-E, Runway, ElevenLabs, and more.',
+    placeholder: 'Single interface visual',
+    bg: 'bg-blue/20',
+  },
+];
+---
+
+<section class="py-20 md:py-28 px-6">
+  <div class="mx-auto max-w-[1200px]">
+    <h2 class="font-display text-[2rem] md:text-[3.125rem] leading-[1] tracking-[-0.02em] text-charcoal text-center">
+      Why CreativeClaw
+    </h2>
+
+    <div class="mt-16 space-y-16 md:space-y-24">
+      {props.map((prop, i) => (
+        <div class={`grid md:grid-cols-2 gap-10 md:gap-16 items-center`}>
+          <!-- Image -->
+          <div class={`${i % 2 === 1 ? 'md:order-2' : ''}`}>
+            <div class={`${prop.bg} rounded-[20px] aspect-[4/3] flex items-center justify-center`}>
+              <span class="text-charcoal/30 font-semibold">{prop.placeholder}</span>
+            </div>
+          </div>
+          <!-- Text -->
+          <div class={`${i % 2 === 1 ? 'md:order-1' : ''}`}>
+            <h3 class="font-semibold text-xl md:text-[1.625rem] leading-[1.2] tracking-[-0.01em] text-charcoal">
+              {prop.title}
+            </h3>
+            <p class="mt-4 text-base md:text-lg text-charcoal-light leading-relaxed">
+              {prop.description}
+            </p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

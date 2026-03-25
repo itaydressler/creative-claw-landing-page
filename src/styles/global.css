@@ -1,1 +1,77 @@
 @import "tailwindcss";
+
+@font-face {
+  font-family: "Larken";
+  src: url("/fonts/larken-regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Hellix";
+  src: url("/fonts/hellix-regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Hellix";
+  src: url("/fonts/hellix-semibold.woff2") format("woff2");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@theme {
+  /* Colors — Base */
+  --color-cream: #FCFAF4;
+  --color-cream-dark: #E6E0CF;
+  --color-charcoal: #333333;
+  --color-charcoal-light: #666666;
+  --color-surface: #FCFCFC;
+
+  /* Colors — Accent Pack */
+  --color-coral: #F36464;
+  --color-pink: #F682A5;
+  --color-orange: #F9A474;
+  --color-yellow: #FEDF6F;
+  --color-green: #C9DA8F;
+  --color-blue: #B8CEDC;
+  --color-purple: #C3B2E7;
+
+  /* Fonts */
+  --font-display: "Larken", Georgia, serif;
+  --font-body: "Hellix", system-ui, sans-serif;
+  --font-mono: "Fragment Mono", ui-monospace, monospace;
+
+  /* Border Radius */
+  --radius-card: 20px;
+  --radius-md: 12px;
+  --radius-sm: 8px;
+}
+
+/* Base styles */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--color-charcoal);
+  background-color: var(--color-cream);
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+}
+
+/* Utility for hiding scrollbar on carousels */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
