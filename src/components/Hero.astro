@@ -88,13 +88,16 @@
 
           <!-- Send button — starts disabled -->
           <button id="hero-send-btn" class="bg-cream-dark/50 text-charcoal-light/50 rounded-xl px-5 py-2.5 text-sm font-semibold flex items-center gap-2 transition-all duration-300 cursor-default">
-            <span id="btn-text">Let's go</span>
-            <svg id="btn-arrow" class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+            <span>Let's go</span>
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
               <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
             </svg>
-            <!-- Loading spinner (hidden initially) -->
-            <img id="btn-loader" src="/icons/claude.svg" alt="" class="w-5 h-5 hidden" />
           </button>
+        </div>
+
+        <!-- Claude thinking logo — centered over the card, hidden initially -->
+        <div id="claude-thinking" class="absolute inset-0 flex items-center justify-center pointer-events-none opacity-0 z-20">
+          <img src="/icons/claude.svg" alt="" class="w-12 h-12" />
         </div>
       </div>
     </div>
@@ -131,11 +134,9 @@
     const typingEl = document.getElementById('hero-typing');
     const cursorEl = document.getElementById('hero-cursor');
     const sendBtn = document.getElementById('hero-send-btn');
-    const btnText = document.getElementById('btn-text');
-    const btnArrow = document.getElementById('btn-arrow');
-    const btnLoader = document.getElementById('btn-loader');
+    const claudeThinking = document.getElementById('claude-thinking');
 
-    if (!typingEl || !sendBtn) return;
+    if (!typingEl || !sendBtn || !claudeThinking) return;
 
     const tl = gsap.timeline({ delay: 0.8 });
 
@@ -167,32 +168,60 @@
       ease: 'power2.out',
     }, '+=0.3');
 
-    // Phase 3: Button "clicked" — show loading
+    // Phase 3: Button "clicked" — press and disable
     tl.to(sendBtn, {
-      scale: 0.95,
-      duration: 0.1,
-      yoyo: true,
-      repeat: 1,
-      ease: 'power2.inOut',
-      onStart: () => {
-        // Hide cursor
+      scale: 0.93,
+      duration: 0.12,
+      ease: 'power2.in',
+    }, '+=0.4');
+    tl.to(sendBtn, {
+      scale: 1,
+      duration: 0.15,
+      ease: 'power2.out',
+      onComplete: () => {
         if (cursorEl) cursorEl.style.display = 'none';
-        // Switch to loading state
-        btnText!.textContent = 'Creating';
-        btnArrow!.classList.add('hidden');
-        btnLoader!.classList.remove('hidden');
-        // Spin the loader
-        gsap.to(btnLoader, { rotation: 360, duration: 1, repeat: -1, ease: 'linear' });
+        sendBtn.classList.remove('bg-claude-orange', 'text-white', 'cursor-pointer');
+        sendBtn.classList.add('bg-cream-dark/50', 'text-charcoal-light/50', 'cursor-default');
       },
-    }, '+=0.5');
+    });
 
-    // Phase 4: Animate in floating images one by one
+    // Phase 4: Claude thinking — logo fades in with glow/breathe pulse
+    tl.to(claudeThinking, {
+      opacity: 1,
+      duration: 0.4,
+      ease: 'power2.out',
+    }, '+=0.1');
+
+    // Breathe pulse: grow and glow, then shrink — 3 cycles
+    for (let i = 0; i < 3; i++) {
+      tl.to(claudeThinking.querySelector('img'), {
+        scale: 1.3,
+        filter: 'drop-shadow(0 0 20px rgba(224, 122, 58, 0.6)) drop-shadow(0 0 40px rgba(224, 122, 58, 0.3))',
+        duration: 0.5,
+        ease: 'sine.inOut',
+      });
+      tl.to(claudeThinking.querySelector('img'), {
+        scale: 0.9,
+        filter: 'drop-shadow(0 0 8px rgba(224, 122, 58, 0.2)) drop-shadow(0 0 0px rgba(224, 122, 58, 0))',
+        duration: 0.5,
+        ease: 'sine.inOut',
+      });
+    }
+
+    // Phase 5: Animate in floating images one by one, fade out thinking logo
     const floatTargets = [
       { id: '#float-social', x: -40, y: -30 },
       { id: '#float-thumb', x: 40, y: -30 },
       { id: '#float-product', x: -30, y: 30 },
       { id: '#float-meme', x: 30, y: 30 },
     ];
+
+    tl.to(claudeThinking, {
+      opacity: 0,
+      scale: 1.5,
+      duration: 0.3,
+      ease: 'power2.in',
+    });
 
     floatTargets.forEach((target, i) => {
       tl.fromTo(target.id, {
@@ -210,18 +239,16 @@
       }, `-=0.35`);
     });
 
-    // Phase 5: Button returns to normal
-    tl.to({}, {
+    // Phase 6: Button back to orange
+    tl.to(sendBtn, {
       duration: 0.01,
       onComplete: () => {
-        gsap.killTweensOf(btnLoader);
-        btnText!.textContent = 'Let\'s go';
-        btnArrow!.classList.remove('hidden');
-        btnLoader!.classList.add('hidden');
+        sendBtn.classList.remove('bg-cream-dark/50', 'text-charcoal-light/50', 'cursor-default');
+        sendBtn.classList.add('bg-claude-orange', 'text-white', 'cursor-pointer');
       },
-    }, '+=0.3');
+    }, '-=0.5');
 
-    // Phase 6: Gentle floating bob on all images
+    // Phase 7: Gentle floating bob on all images
     tl.add(() => {
       floatTargets.forEach((target, i) => {
         gsap.to(target.id, {
@@ -235,7 +262,6 @@
     });
   }
 
-  // Run when DOM is ready
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', runHeroAnimation);
   } else {
