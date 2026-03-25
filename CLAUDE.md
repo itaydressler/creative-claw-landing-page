@@ -43,3 +43,4 @@ public/         # static assets (images, fonts, favicon)
 - Pages import Layout.astro which handles `<head>`, global styles, and base markup
 - Tailwind classes go directly on elements (no separate CSS files per component)
 - All pages are statically generated at build time — no server-side logic
+- **Never commit or push without being explicitly asked to**
