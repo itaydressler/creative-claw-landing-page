@@ -2,6 +2,20 @@
 
 Static landing page for [creativeclaw.co](https://creativeclaw.co).
 
+## About CreativeClaw
+
+CreativeClaw is a remote MCP that gives Claude, Claude Code, and OpenClaw access to every top AI media generation model (Flux, DALL-E, Midjourney, Runway, ElevenLabs, and more via Fal.ai). Users install one MCP URL, log in, and can generate images, video, audio, 3D objects, remove backgrounds, and manage assets — all without leaving their AI assistant.
+
+**Target audience:** Marketers who use Claude (product marketing, brand marketing, content creation, ad marketing). Broader: anyone using Claude/OpenClaw for creative work.
+
+**Core value props:** (1) Close the full creative loop inside Claude — no tool-switching. (2) Better on-brand media via multi-model generation and AI-driven iteration. (3) Access to every top AI model through one account.
+
+**Status:** MVP is live. Landing page frames it as beta with waitlist (feels live, not "coming soon"). PLG motion, usage-based pricing (details TBD).
+
+**Tone:** Playful & bold, high-end, animated. The page itself should showcase what you can create.
+
+For the full product definition, see [docs/product-definition.md](docs/product-definition.md).
+
 ## Stack
 
 - **Astro 6** — static site generator (output: static, no SSR)
