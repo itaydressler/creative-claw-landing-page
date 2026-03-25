@@ -3,19 +3,19 @@ const props = [
   {
     title: 'Studio-Quality, Every Time',
     description: 'CreativeClaw\'s built-in skills generate multiple variants across different AI models, then let Claude compare and pick the best one. The result is professional, polished assets — not generic AI output.',
-    placeholder: 'Multi-variant comparison visual',
+    image: '/value-props/studio-quality.png',
     bg: 'bg-purple/20',
   },
   {
     title: 'Close the Loop Inside Claude',
     description: 'Stop bouncing between ChatGPT, Midjourney, Canva, and Runway. Brief, generate, iterate, compose, and publish — all in one conversation. Claude remembers context and keeps everything connected.',
-    placeholder: 'Unified workflow visual',
+    image: '/value-props/close-the-loop.png',
     bg: 'bg-orange/20',
   },
   {
     title: 'One Account, Every Model',
     description: 'No more juggling APIs, billing, and credentials. One MCP, one login — access to Flux, Midjourney, DALL-E, Runway, ElevenLabs, and every model on Fal.ai. New models added constantly.',
-    placeholder: 'Single interface visual',
+    image: '/value-props/one-account.png',
     bg: 'bg-blue/20',
   },
 ];
@@ -32,8 +32,8 @@ const props = [
         <div class={`grid md:grid-cols-2 gap-10 md:gap-16 items-center`}>
           <!-- Image -->
           <div class={`${i % 2 === 1 ? 'md:order-2' : ''}`}>
-            <div class={`${prop.bg} rounded-[20px] aspect-[4/3] flex items-center justify-center`}>
-              <span class="text-charcoal/30 font-semibold">{prop.placeholder}</span>
+            <div class={`${prop.bg} rounded-[20px] p-6 md:p-8 flex items-center justify-center`}>
+              <img src={prop.image} alt={prop.title} class="w-full max-w-[500px] h-auto drop-shadow-lg" loading="lazy" />
             </div>
           </div>
           <!-- Text -->
