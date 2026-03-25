@@ -5,7 +5,7 @@
   <div class="mx-auto max-w-[1200px] text-center">
     <!-- Heading -->
     <h1 class="font-display text-[2.5rem] md:text-[4.5rem] leading-[0.9] tracking-[-0.03em] text-charcoal max-w-4xl mx-auto">
-      Create On-Brand Content,
+      Generate On-Brand Media,
       <br /><span class="text-claude-orange">Inside Claude.</span>
     </h1>
 
@@ -32,38 +32,40 @@
 
     <!-- Hero media area -->
     <div class="mt-16 relative mx-auto max-w-4xl" id="hero-media">
-      <!-- Decorative Claude-style lines -->
-      <svg class="absolute -top-8 -left-12 w-24 h-24 text-claude-orange/20 hidden md:block" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="2">
-        <path d="M20,80 Q50,10 80,50" stroke-linecap="round" />
-        <path d="M10,60 Q40,20 70,40" stroke-linecap="round" />
-        <circle cx="15" cy="75" r="4" fill="currentColor" />
-      </svg>
-      <svg class="absolute -top-4 -right-16 w-20 h-20 text-purple/30 hidden md:block" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="2">
-        <path d="M30,70 Q60,10 90,40" stroke-linecap="round" />
-        <circle cx="85" cy="35" r="5" fill="currentColor" />
-        <circle cx="35" cy="65" r="3" fill="currentColor" />
-      </svg>
-      <svg class="absolute -bottom-8 -left-8 w-16 h-16 text-pink/30 hidden md:block" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="2">
-        <circle cx="50" cy="50" r="20" />
-        <circle cx="50" cy="50" r="8" fill="currentColor" />
-      </svg>
-      <svg class="absolute -bottom-12 right-8 w-20 h-20 text-green/40 hidden md:block" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="2.5">
-        <path d="M20,50 L40,30 L60,50 L80,30" stroke-linecap="round" stroke-linejoin="round" />
-        <circle cx="25" cy="48" r="4" fill="currentColor" />
-      </svg>
+      <!-- Floating platform icons — animated in with content -->
+      <div id="icon-instagram" class="absolute -top-3 left-[15%] z-30 opacity-0 hidden md:block">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-purple-500 via-pink-500 to-orange-400 flex items-center justify-center shadow-lg">
+          <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+        </div>
+      </div>
+      <div id="icon-youtube" class="absolute -top-3 right-[15%] z-30 opacity-0 hidden md:block">
+        <div class="w-10 h-10 rounded-xl bg-red-600 flex items-center justify-center shadow-lg">
+          <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+        </div>
+      </div>
+      <div id="icon-facebook" class="absolute bottom-[10%] -right-2 md:right-0 z-30 opacity-0 hidden md:block">
+        <div class="w-10 h-10 rounded-xl bg-blue-600 flex items-center justify-center shadow-lg">
+          <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+        </div>
+      </div>
 
-      <!-- Floating images — start hidden, animated in -->
-      <div id="float-social" class="absolute -top-6 -left-8 md:-left-16 w-36 md:w-48 rotate-[-6deg] z-20 rounded-[16px] overflow-hidden shadow-2xl opacity-0 scale-50">
-        <img src="/hero/social-post.jpg" alt="AI-generated social media post" class="w-full h-auto" />
+      <!-- Floating content: Instagram Reel (left) -->
+      <div id="float-reel" class="absolute -top-4 -left-4 md:-left-10 w-32 md:w-44 rotate-[-4deg] z-20 rounded-[16px] overflow-hidden shadow-2xl opacity-0 scale-50">
+        <video autoplay loop muted playsinline poster="/hero-v2/reel-poster.png" class="w-full h-auto">
+          <source src="/hero-v2/reel-video.mp4" type="video/mp4" />
+        </video>
       </div>
-      <div id="float-thumb" class="absolute -top-8 -right-4 md:-right-12 w-40 md:w-52 rotate-[5deg] z-20 rounded-[16px] overflow-hidden shadow-2xl opacity-0 scale-50">
-        <img src="/hero/thumbnail.jpg" alt="AI-generated YouTube thumbnail" class="w-full h-auto" />
+
+      <!-- Floating content: YouTube video (right) -->
+      <div id="float-youtube" class="absolute -top-6 -right-4 md:-right-10 w-44 md:w-56 rotate-[4deg] z-20 rounded-[12px] overflow-hidden shadow-2xl opacity-0 scale-50">
+        <video autoplay loop muted playsinline poster="/hero-v2/youtube-poster.png" class="w-full h-auto">
+          <source src="/hero-v2/youtube-video.mp4" type="video/mp4" />
+        </video>
       </div>
-      <div id="float-product" class="absolute -bottom-8 -left-4 md:left-8 w-32 md:w-40 z-20 drop-shadow-2xl opacity-0 scale-50">
-        <img src="/hero/product.png" alt="AI-generated product shot" class="w-full h-auto" />
-      </div>
-      <div id="float-meme" class="absolute -bottom-10 -right-2 md:right-4 w-28 md:w-36 rotate-[6deg] z-20 drop-shadow-2xl opacity-0 scale-50">
-        <img src="/hero/meme.png" alt="AI-generated meme sticker" class="w-full h-auto" />
+
+      <!-- Floating content: Facebook post (bottom-right) -->
+      <div id="float-facebook" class="absolute -bottom-6 -right-2 md:right-6 w-36 md:w-48 rotate-[3deg] z-20 rounded-[12px] overflow-hidden shadow-2xl opacity-0 scale-50">
+        <img src="/hero-v2/facebook-post.png" alt="Facebook spring launch post" class="w-full h-auto" />
       </div>
 
       <!-- Central Claude input card -->
@@ -95,7 +97,7 @@
           </button>
         </div>
 
-        <!-- Claude thinking logo — centered over the card, hidden initially -->
+        <!-- Claude thinking logo — centered over the card -->
         <div id="claude-thinking" class="absolute inset-0 flex items-center justify-center pointer-events-none opacity-0 z-20">
           <img src="/icons/claude.svg" alt="" class="w-12 h-12" />
         </div>
@@ -128,7 +130,7 @@
 <script>
   import gsap from 'gsap';
 
-  const PROMPT = "Create on-brand Instagram Reels for our spring launch, a YouTube thumbnail, and a fun meme for social.";
+  const PROMPT = "Create an Instagram Reel, a YouTube video, and a Facebook post for our spring beauty launch. Use our brand colors and keep it on-brand.";
 
   function runHeroAnimation() {
     const typingEl = document.getElementById('hero-typing');
@@ -143,7 +145,7 @@
     // Phase 1: Typing animation
     let charIndex = 0;
     tl.to({}, {
-      duration: PROMPT.length * 0.03,
+      duration: PROMPT.length * 0.028,
       onUpdate: function() {
         const progress = this.progress();
         const newIndex = Math.floor(progress * PROMPT.length);
@@ -158,7 +160,7 @@
       ease: 'none',
     });
 
-    // Phase 2: Button activates (turns orange)
+    // Phase 2: Button activates
     tl.to(sendBtn, {
       duration: 0.3,
       onStart: () => {
@@ -168,12 +170,8 @@
       ease: 'power2.out',
     }, '+=0.3');
 
-    // Phase 3: Button "clicked" — press and disable
-    tl.to(sendBtn, {
-      scale: 0.93,
-      duration: 0.12,
-      ease: 'power2.in',
-    }, '+=0.4');
+    // Phase 3: Button press → disable
+    tl.to(sendBtn, { scale: 0.93, duration: 0.12, ease: 'power2.in' }, '+=0.4');
     tl.to(sendBtn, {
       scale: 1,
       duration: 0.15,
@@ -185,58 +183,46 @@
       },
     });
 
-    // Phase 4: Claude thinking — logo fades in with glow/breathe pulse
-    tl.to(claudeThinking, {
-      opacity: 1,
-      duration: 0.4,
-      ease: 'power2.out',
-    }, '+=0.1');
-
-    // Breathe pulse: grow and glow, then shrink — 3 cycles
+    // Phase 4: Claude thinking breathe pulse
+    tl.to(claudeThinking, { opacity: 1, duration: 0.4, ease: 'power2.out' }, '+=0.1');
     for (let i = 0; i < 3; i++) {
       tl.to(claudeThinking.querySelector('img'), {
         scale: 1.3,
-        filter: 'drop-shadow(0 0 20px rgba(224, 122, 58, 0.6)) drop-shadow(0 0 40px rgba(224, 122, 58, 0.3))',
+        filter: 'drop-shadow(0 0 20px rgba(224,122,58,0.6)) drop-shadow(0 0 40px rgba(224,122,58,0.3))',
         duration: 0.5,
         ease: 'sine.inOut',
       });
       tl.to(claudeThinking.querySelector('img'), {
         scale: 0.9,
-        filter: 'drop-shadow(0 0 8px rgba(224, 122, 58, 0.2)) drop-shadow(0 0 0px rgba(224, 122, 58, 0))',
+        filter: 'drop-shadow(0 0 8px rgba(224,122,58,0.2)) drop-shadow(0 0 0px rgba(224,122,58,0))',
         duration: 0.5,
         ease: 'sine.inOut',
       });
     }
 
-    // Phase 5: Animate in floating images one by one, fade out thinking logo
+    // Phase 5: Fade out thinking, pop in content + platform icons
+    tl.to(claudeThinking, { opacity: 0, scale: 1.5, duration: 0.3, ease: 'power2.in' });
+
     const floatTargets = [
-      { id: '#float-social', x: -40, y: -30 },
-      { id: '#float-thumb', x: 40, y: -30 },
-      { id: '#float-product', x: -30, y: 30 },
-      { id: '#float-meme', x: 30, y: 30 },
+      { id: '#float-reel', icon: '#icon-instagram', x: -40, y: -20 },
+      { id: '#float-youtube', icon: '#icon-youtube', x: 40, y: -20 },
+      { id: '#float-facebook', icon: '#icon-facebook', x: 30, y: 30 },
     ];
 
-    tl.to(claudeThinking, {
-      opacity: 0,
-      scale: 1.5,
-      duration: 0.3,
-      ease: 'power2.in',
-    });
-
     floatTargets.forEach((target, i) => {
+      // Pop in the content
       tl.fromTo(target.id, {
-        opacity: 0,
-        scale: 0.3,
-        x: target.x,
-        y: target.y,
+        opacity: 0, scale: 0.3, x: target.x, y: target.y,
       }, {
-        opacity: 1,
-        scale: 1,
-        x: 0,
-        y: 0,
-        duration: 0.6,
-        ease: 'back.out(1.7)',
-      }, `-=0.35`);
+        opacity: 1, scale: 1, x: 0, y: 0, duration: 0.6, ease: 'back.out(1.7)',
+      }, i === 0 ? '+=0' : `-=0.4`);
+
+      // Pop in the platform icon badge right after
+      tl.fromTo(target.icon, {
+        opacity: 0, scale: 0, y: 10,
+      }, {
+        opacity: 1, scale: 1, y: 0, duration: 0.35, ease: 'back.out(2)',
+      }, '-=0.3');
     });
 
     // Phase 6: Button back to orange
@@ -246,17 +232,16 @@
         sendBtn.classList.remove('bg-cream-dark/50', 'text-charcoal-light/50', 'cursor-default');
         sendBtn.classList.add('bg-claude-orange', 'text-white', 'cursor-pointer');
       },
-    }, '-=0.5');
+    }, '-=0.3');
 
-    // Phase 7: Gentle floating bob on all images
+    // Phase 7: Gentle floating bob on content + icons
     tl.add(() => {
       floatTargets.forEach((target, i) => {
         gsap.to(target.id, {
-          y: '+=8',
-          duration: 2 + i * 0.3,
-          repeat: -1,
-          yoyo: true,
-          ease: 'sine.inOut',
+          y: '+=8', duration: 2.2 + i * 0.4, repeat: -1, yoyo: true, ease: 'sine.inOut',
+        });
+        gsap.to(target.icon, {
+          y: '+=6', duration: 2.5 + i * 0.3, repeat: -1, yoyo: true, ease: 'sine.inOut',
         });
       });
     });
