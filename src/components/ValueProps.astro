@@ -8,15 +8,21 @@ const props = [
   },
   {
     title: 'Close the Loop Inside Claude',
-    description: 'Stop bouncing between ChatGPT, Midjourney, Canva, and Runway. Brief, generate, iterate, compose, and publish — all in one conversation. Claude remembers context and keeps everything connected.',
+    description: 'Stop bouncing between Midjourney, Canva, Runway, and ElevenLabs. Brief, generate, iterate, compose, and publish — all in one conversation. Claude remembers context and keeps everything connected.',
     image: '/value-props/close-the-loop.png',
     bg: 'bg-orange/20',
   },
   {
     title: 'One Account, Every Model',
-    description: 'No more juggling APIs, billing, and credentials. One MCP, one login — access to Flux, Midjourney, DALL-E, Runway, ElevenLabs, Seedream, Kling, and more. New models added constantly.',
+    description: 'No more five API keys, five billing dashboards, five logins. One MCP, one account — instant access to Flux, Midjourney, Runway, ElevenLabs, Seedream, Kling, and every new model as it launches.',
     image: '/value-props/one-account.png',
     bg: 'bg-blue/20',
+  },
+  {
+    title: 'Autonomous Creative Agents',
+    description: 'Enable fully autonomous background agents to generate on-demand, on-brand content — without lifting a finger. Schedule campaigns, repurpose assets across platforms, and let OpenClaw agents run creative workflows end to end. Endless opportunities, zero bottlenecks.',
+    icon: 'openclaw',
+    bg: 'bg-coral/15',
   },
 ];
 ---
@@ -24,7 +30,7 @@ const props = [
 <section class="py-20 md:py-28 px-6">
   <div class="mx-auto max-w-[1200px]">
     <h2 class="font-display text-[2rem] md:text-[3.125rem] leading-[1] tracking-[-0.02em] text-charcoal text-center">
-      Why CreativeClaw
+      Why Teams Choose CreativeClaw
     </h2>
 
     <div class="mt-16 space-y-16 md:space-y-24">
@@ -32,8 +38,25 @@ const props = [
         <div class={`grid md:grid-cols-2 gap-10 md:gap-16 items-center`}>
           <!-- Image -->
           <div class={`${i % 2 === 1 ? 'md:order-2' : ''}`}>
-            <div class={`${prop.bg} rounded-[20px] p-6 md:p-8 flex items-center justify-center`}>
-              <img src={prop.image} alt={prop.title} class="w-full max-w-[500px] h-auto drop-shadow-lg" loading="lazy" />
+            <div class={`${prop.bg} rounded-[20px] p-6 md:p-8 flex items-center justify-center min-h-[240px] md:min-h-[300px]`}>
+              {prop.image ? (
+                <img src={prop.image} alt={prop.title} class="w-full max-w-[500px] h-auto drop-shadow-lg" loading="lazy" />
+              ) : prop.icon === 'openclaw' ? (
+                <div class="flex flex-col items-center gap-6">
+                  <div class="relative">
+                    <div class="absolute inset-0 bg-coral/20 rounded-full blur-2xl scale-150"></div>
+                    <img src="/icons/openclaw.svg" alt="OpenClaw" class="w-20 h-20 md:w-28 md:h-28 relative z-10" />
+                  </div>
+                  <div class="flex items-center gap-3 opacity-60">
+                    <div class="flex gap-1">
+                      <div class="w-2 h-2 rounded-full bg-coral animate-pulse"></div>
+                      <div class="w-2 h-2 rounded-full bg-coral animate-pulse" style="animation-delay: 0.3s"></div>
+                      <div class="w-2 h-2 rounded-full bg-coral animate-pulse" style="animation-delay: 0.6s"></div>
+                    </div>
+                    <span class="text-xs text-charcoal-light font-medium">Agent running</span>
+                  </div>
+                </div>
+              ) : null}
             </div>
           </div>
           <!-- Text -->

@@ -1,34 +1,131 @@
 ---
-const models = [
-  { name: 'Flux Pro', description: 'Fast, high-quality image generation', image: '/models/flux.jpg' },
-  { name: 'Midjourney', description: 'Artistic, stylized imagery', image: '/models/midjourney.jpg' },
-  { name: 'Seedream', description: 'Photorealistic image synthesis', image: '/models/dalle.jpg' },
-  { name: 'Kling', description: 'Cinematic video generation', image: '/models/runway.jpg' },
-  { name: 'ElevenLabs', description: 'Natural text-to-speech', image: '/models/elevenlabs.jpg' },
-  { name: '+ Many More', description: 'Runway, DALL-E, Recraft, Luma & more', image: '/models/falai.jpg' },
+const leftModels = [
+  { name: 'Flux Pro', image: '/models/flux.jpg', rotation: '-14deg', top: '5%', left: '10%', z: 1 },
+  { name: 'Midjourney', image: '/models/midjourney.jpg', rotation: '-5deg', top: '28%', left: '-2%', z: 2 },
+  { name: 'Seedance 2', video: '/models/example-4.mp4', image: '/models/dalle.jpg', rotation: '-20deg', top: '55%', left: '8%', z: 1 },
+];
+
+const rightModels = [
+  { name: 'Kling', video: '/models/kling.mp4', image: '/models/runway.jpg', rotation: '12deg', top: '5%', right: '10%', z: 1 },
+  { name: 'ElevenLabs', image: '/models/elevenlabs.jpg', rotation: '5deg', top: '28%', right: '-2%', z: 2 },
+  { name: '+ 1000 More', image: '/models/falai.jpg', rotation: '18deg', top: '55%', right: '8%', z: 1 },
 ];
 ---
 
-<section id="models" class="py-20 md:py-28 px-6">
+<section id="models" class="py-20 md:py-28 px-6 overflow-hidden">
   <div class="mx-auto max-w-[1200px]">
     <h2 class="font-display text-[2rem] md:text-[3.125rem] leading-[1] tracking-[-0.02em] text-charcoal text-center">
       Access Every Top AI Model
     </h2>
     <p class="mt-5 text-lg text-charcoal-light text-center max-w-2xl mx-auto">
-      One account. One payment method. Every model.
+      Enable Claude to choose the best model for each job — from 1,000+ production-ready image, video, audio, and 3D models. One account. One payment method.
     </p>
 
-    <div class="mt-14 grid grid-cols-2 md:grid-cols-3 gap-5">
-      {models.map(model => (
-        <div class="relative rounded-[20px] overflow-hidden min-h-[180px] md:min-h-[220px] group hover:scale-[1.02] transition-transform">
-          <img src={model.image} alt={`${model.name} sample output`} class="absolute inset-0 w-full h-full object-cover" loading="lazy" />
-          <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent"></div>
-          <div class="relative z-10 flex flex-col justify-end h-full p-6 md:p-8">
-            <h3 class="font-semibold text-lg text-white">{model.name}</h3>
-            <p class="mt-1 text-sm text-white/70">{model.description}</p>
+    <!-- Mac + Cards layout -->
+    <div id="models-scene" class="mt-16 relative flex items-center justify-center min-h-[440px] md:min-h-[500px]">
+
+      <!-- Left model cards (behind mac) -->
+      {leftModels.map((model) => (
+        <div
+          class="model-card absolute w-[28%] md:w-[22%] rounded-[16px] overflow-hidden shadow-xl hidden md:block"
+          style={`transform: rotate(${model.rotation}); top: ${model.top}; left: ${model.left}; z-index: ${model.z};`}
+        >
+          {model.video ? (
+            <video autoplay loop muted playsinline class="w-full aspect-[4/3] object-cover">
+              <source src={model.video} type="video/mp4" />
+            </video>
+          ) : (
+            <img src={model.image} alt={model.name} class="w-full aspect-[4/3] object-cover" loading="lazy" />
+          )}
+          <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+          <div class="absolute bottom-0 left-0 right-0 p-4">
+            <span class="text-white text-base md:text-lg font-bold drop-shadow-lg">{model.name}</span>
           </div>
         </div>
       ))}
+
+      <!-- Right model cards (behind mac) -->
+      {rightModels.map((model) => (
+        <div
+          class="model-card absolute w-[28%] md:w-[22%] rounded-[16px] overflow-hidden shadow-xl hidden md:block"
+          style={`transform: rotate(${model.rotation}); top: ${model.top}; right: ${model.right}; z-index: ${model.z};`}
+        >
+          {model.video ? (
+            <video autoplay loop muted playsinline class="w-full aspect-[4/3] object-cover">
+              <source src={model.video} type="video/mp4" />
+            </video>
+          ) : (
+            <img src={model.image} alt={model.name} class="w-full aspect-[4/3] object-cover" loading="lazy" />
+          )}
+          <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+          <div class="absolute bottom-0 left-0 right-0 p-4">
+            <span class="text-white text-base md:text-lg font-bold drop-shadow-lg">{model.name}</span>
+          </div>
+        </div>
+      ))}
+
+      <!-- Center: Mac Desktop frame (on top) -->
+      <div class="relative z-10 w-[52%] md:w-[38%] max-w-[440px]">
+        <!-- Mac frame — wider aspect ratio -->
+        <div class="bg-[#1a1a1a] rounded-t-[12px] border border-[#333] border-b-0 shadow-2xl overflow-hidden">
+          <!-- Title bar -->
+          <div class="flex items-center gap-2 px-4 py-2 bg-[#2a2a2a] border-b border-[#333]">
+            <div class="flex gap-1.5">
+              <div class="w-2.5 h-2.5 rounded-full bg-[#ff5f57]"></div>
+              <div class="w-2.5 h-2.5 rounded-full bg-[#febc2e]"></div>
+              <div class="w-2.5 h-2.5 rounded-full bg-[#28c840]"></div>
+            </div>
+            <div class="flex-1 text-center">
+              <span class="text-[10px] text-white/40 font-medium">CreativeClaw</span>
+            </div>
+            <div class="w-10"></div>
+          </div>
+
+          <!-- Screen content — 16:10 ish aspect -->
+          <div class="bg-gradient-to-br from-[#1a1714] via-[#261f17] to-[#1a1714] p-6 md:p-8 flex flex-col items-center justify-center aspect-[16/10]">
+            <!-- CreativeClaw logo -->
+            <div class="flex items-center gap-2 mb-6">
+              <img src="/logo.png" alt="CreativeClaw" class="w-6 h-6" />
+              <span class="text-white/90 text-sm font-semibold tracking-tight">CreativeClaw</span>
+            </div>
+
+            <!-- Tagline -->
+            <p class="text-white/30 text-[11px] text-center mb-6">Connected & ready</p>
+
+            <!-- Works with logos -->
+            <div class="flex items-center gap-5 md:gap-7">
+              <div class="flex flex-col items-center gap-1.5 opacity-80">
+                <img src="/icons/claude.svg" alt="Claude" class="w-7 h-7" />
+                <span class="text-[9px] text-white/50 font-medium">Claude</span>
+              </div>
+              <div class="flex flex-col items-center gap-1.5 opacity-80">
+                <img src="/icons/claudecode.svg" alt="Claude Code" class="w-7 h-7" />
+                <span class="text-[9px] text-white/50 font-medium">Claude Code</span>
+              </div>
+              <div class="flex flex-col items-center gap-1.5 opacity-80">
+                <img src="/icons/openclaw.svg" alt="OpenClaw" class="w-7 h-7" />
+                <span class="text-[9px] text-white/50 font-medium">OpenClaw</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Mac chin + stand -->
+        <div class="bg-gradient-to-b from-[#e0e0e0] to-[#c8c8c8] h-[14px] rounded-b-[12px] border border-t-0 border-[#b0b0b0]"></div>
+        <div class="flex flex-col items-center">
+          <div class="w-[22%] h-[20px] bg-gradient-to-b from-[#d0d0d0] to-[#b8b8b8]"></div>
+          <div class="w-[38%] h-[5px] bg-gradient-to-b from-[#c0c0c0] to-[#a8a8a8] rounded-b-[3px]"></div>
+        </div>
+      </div>
+
+      <!-- Mobile: model cards in a row below -->
+      <div class="md:hidden absolute -bottom-4 left-0 right-0 flex justify-center gap-2 px-4">
+        {[...leftModels, ...rightModels].slice(0, 4).map((model) => (
+          <div class="w-16 h-16 rounded-[10px] overflow-hidden shadow-lg shrink-0">
+            <img src={model.image} alt={model.name} class="w-full h-full object-cover" loading="lazy" />
+          </div>
+        ))}
+      </div>
     </div>
 
     <div class="mt-10 text-center">
@@ -38,3 +135,31 @@ const models = [
     </div>
   </div>
 </section>
+
+<script>
+  // Subtle parallax on scroll
+  const scene = document.getElementById('models-scene');
+  if (scene) {
+    const cards = scene.querySelectorAll('.model-card');
+    let ticking = false;
+
+    window.addEventListener('scroll', () => {
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          const rect = scene.getBoundingClientRect();
+          const center = rect.top + rect.height / 2;
+          const viewCenter = window.innerHeight / 2;
+          const offset = (center - viewCenter) * 0.04; // subtle
+
+          cards.forEach((card, i) => {
+            const direction = i < 3 ? -1 : 1; // left cards go left, right go right
+            const el = card as HTMLElement;
+            el.style.translate = `${direction * offset * 0.5}px ${offset}px`;
+          });
+          ticking = false;
+        });
+        ticking = true;
+      }
+    });
+  }
+</script>
