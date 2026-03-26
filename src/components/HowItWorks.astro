@@ -1,4 +1,6 @@
 ---
+import IterationAnimation from './IterationAnimation.astro';
+
 const steps = [
   {
     number: '01',
@@ -18,14 +20,14 @@ const steps = [
     number: '03',
     title: 'Claude Iterates to Perfection',
     description: 'Claude generates multiple options across different models, compares them, removes backgrounds, adds voiceover, composes Remotion videos — and delivers studio-quality assets ready for every platform.',
-    placeholder: 'Multi-variant Selection',
+    custom: 'iteration-demo',
     bg: 'bg-orange/30',
   },
   {
     number: '04',
     title: 'Save Brand Assets & Reuse',
     description: 'Save your brand colors, fonts, logos, and style guidelines as reusable assets. Every future generation stays on-brand automatically — no more one-off prompting. Your brand DNA is baked in.',
-    placeholder: 'Brand Asset Library',
+    custom: 'brand-library',
     bg: 'bg-purple/30',
   },
 ];
@@ -72,8 +74,50 @@ const steps = [
                     </div>
                   </div>
                 </div>
-              ) : (
-                <span class="absolute inset-0 flex items-center justify-center text-charcoal/30 font-semibold">{step.placeholder}</span>
+              ) : step.custom === 'iteration-demo' ? (
+                <IterationAnimation />
+              ) : step.custom === 'brand-library' ? (
+                <div class="absolute inset-0 flex items-center justify-center p-6 md:p-8">
+                  {/* Floating abstract shapes */}
+                  <div class="brand-float-1 absolute top-[10%] left-[8%] w-16 h-16 rounded-full bg-gradient-to-br from-[#00704A]/40 to-[#D4E9E2]/60 blur-[1px]"></div>
+                  <div class="brand-float-2 absolute top-[15%] right-[12%] w-10 h-10 rounded-lg rotate-45 bg-gradient-to-br from-[#CBA258]/50 to-[#E8D5A8]/40"></div>
+                  <div class="brand-float-3 absolute bottom-[18%] left-[12%] w-8 h-8 rounded-full bg-gradient-to-br from-[#1E3932]/30 to-[#00704A]/40"></div>
+                  <div class="brand-float-1 absolute bottom-[12%] right-[8%] w-14 h-14 rounded-2xl rotate-12 bg-gradient-to-br from-[#D4E9E2]/50 to-[#00704A]/20 blur-[1px]"></div>
+                  <div class="brand-float-2 absolute top-[45%] left-[3%] w-6 h-6 rounded-full bg-[#CBA258]/30"></div>
+                  <div class="brand-float-3 absolute top-[8%] left-[45%] w-5 h-5 rounded-md rotate-[30deg] bg-[#1E3932]/20"></div>
+
+                  {/* Brand card */}
+                  <div class="bg-surface/95 backdrop-blur-sm rounded-[16px] p-5 md:p-6 shadow-xl w-full max-w-[280px] border border-cream-dark/30 relative z-10">
+                    {/* Logo + label */}
+                    <div class="flex items-center gap-3 mb-4">
+                      <img src="/on-brand/starbucks-logo.png" alt="Starbucks" class="h-8 object-contain" />
+                      <div>
+                        <span class="text-[10px] uppercase tracking-widest text-charcoal-light/60 font-semibold">Brand Kit</span>
+                      </div>
+                    </div>
+                    {/* Color palette */}
+                    <div class="flex gap-2 mb-4">
+                      <div class="brand-swatch-pulse w-9 h-9 rounded-lg shadow-sm" style="background-color: #00704A;"></div>
+                      <div class="brand-swatch-pulse w-9 h-9 rounded-lg shadow-sm" style="background-color: #1E3932; animation-delay: 0.5s;"></div>
+                      <div class="brand-swatch-pulse w-9 h-9 rounded-lg shadow-sm" style="background-color: #D4E9E2; animation-delay: 1s;"></div>
+                      <div class="brand-swatch-pulse w-9 h-9 rounded-lg shadow-sm" style="background-color: #CBA258; animation-delay: 1.5s;"></div>
+                    </div>
+                    {/* Font row */}
+                    <div class="flex items-center gap-2 mb-4">
+                      <span class="text-xs font-semibold" style="color: #1E3932; font-family: 'Georgia', serif;">Sodo Sans</span>
+                      <span class="text-[10px] text-charcoal-light/50">Aa</span>
+                      <div class="flex-1 flex gap-1.5">
+                        <div class="h-2.5 flex-1 rounded-full bg-[#D4E9E2]"></div>
+                        <div class="h-2.5 w-8 rounded-full bg-[#D4E9E2]/60"></div>
+                      </div>
+                    </div>
+                    {/* Saved indicator */}
+                    <div class="flex items-center gap-1.5 text-[#00704A]">
+                      <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>
+                      <span class="text-[11px] font-semibold">Saved & reusable across all generations</span>
+                    </div>
+                  </div>
+                </div>
               )}
             </div>
           </div>
