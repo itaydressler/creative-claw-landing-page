@@ -154,14 +154,31 @@
 
       <!-- Remotion Videos -->
       <div class="md:col-span-7 bg-charcoal rounded-[24px] p-7 md:p-8 relative overflow-hidden min-h-[380px] md:min-h-[480px] flex flex-col justify-between">
-        <!-- Image -->
+        <!-- Floating React icon -->
+        <div class="absolute top-4 right-4 md:top-6 md:right-6 z-20">
+          <div class="w-12 h-12 rounded-xl bg-[#61DAFB]/20 backdrop-blur-sm flex items-center justify-center shadow-lg border border-[#61DAFB]/30">
+            <svg class="w-7 h-7 text-[#61DAFB]" viewBox="-11.5 -10.232 23 20.463" fill="currentColor">
+              <circle r="2.05"></circle>
+              <g stroke="currentColor" fill="none" stroke-width="1">
+                <ellipse rx="11" ry="4.2"></ellipse>
+                <ellipse rx="11" ry="4.2" transform="rotate(60)"></ellipse>
+                <ellipse rx="11" ry="4.2" transform="rotate(120)"></ellipse>
+              </g>
+            </svg>
+          </div>
+        </div>
+        <!-- Video -->
         <div class="flex-1 relative flex items-center justify-center mb-4">
-          <img src="/use-cases/remotion-video.jpg" alt="Video editing timeline with AI-generated assets" class="w-[95%] max-w-[520px] h-auto rounded-[12px] shadow-2xl object-contain" />
+          <div class="w-full max-w-[520px] rounded-[12px] overflow-hidden">
+            <video autoplay loop muted playsinline class="w-full h-auto">
+              <source src="/use-cases/remotion-compose.webm" type="video/webm" />
+            </video>
+          </div>
         </div>
         <!-- Text -->
         <div class="flex items-start gap-3">
           <div class="flex-shrink-0 mt-1">
-            <img src="/icons/remotion.svg" alt="Remotion" class="w-7 h-7 text-white" style="filter: brightness(0) invert(1);" />
+            <img src="/icons/remotion.svg" alt="Remotion" class="w-7 h-7" style="filter: brightness(0) invert(1);" />
           </div>
           <div>
             <h3 class="font-display text-2xl md:text-3xl text-white">Remotion Videos</h3>

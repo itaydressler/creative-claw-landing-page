@@ -2,16 +2,16 @@
 const steps = [
   {
     number: '01',
-    title: 'Add the MCP URL',
-    description: 'Paste one URL into Claude Desktop or Claude Code. That\'s the entire setup — instant access to every top AI model.',
-    placeholder: 'MCP Settings Screenshot',
-    bg: 'bg-blue/30',
+    title: 'Connect to Claude',
+    description: 'Connect our plugin creative-claw@plugins. This installs the MCP and Skills for Claude — instant access to every top AI model.',
+    image: '/how-it-works/claude-connections.png',
+    bg: 'bg-coral',
   },
   {
     number: '02',
     title: 'Describe What You Need',
     description: 'Tell Claude what you want in plain language. Our built-in skills guide Claude to pick the right model, craft the perfect prompt, and generate multiple variants — so it can pick the best one for you.',
-    placeholder: 'Claude Conversation',
+    custom: 'typing-demo',
     bg: 'bg-pink/30',
   },
   {
@@ -42,8 +42,39 @@ const steps = [
         <div class={`grid md:grid-cols-2 gap-10 md:gap-16 items-center ${i % 2 === 1 ? 'md:direction-rtl' : ''}`}>
           <!-- Image -->
           <div class={`${i % 2 === 1 ? 'md:order-2' : ''}`}>
-            <div class={`${step.bg} rounded-[20px] aspect-[4/3] flex items-center justify-center`}>
-              <span class="text-charcoal/30 font-semibold">{step.placeholder}</span>
+            <div class={`${step.bg} rounded-[20px] aspect-[4/3] relative overflow-hidden`}>
+              {step.image ? (
+                <img src={step.image} alt={step.title} class="absolute bottom-0 right-0 w-full" />
+              ) : step.custom === 'typing-demo' ? (
+                <div class="absolute inset-0 flex items-center justify-center p-6 md:p-8">
+                  <div class="bg-surface rounded-[20px] shadow-2xl w-full max-w-md border border-cream-dark/40">
+                    <!-- Input area -->
+                    <div class="p-4 md:p-5 min-h-[72px] text-left">
+                      <span id="hiw-typing" class="text-sm md:text-base text-charcoal leading-relaxed"></span><span id="hiw-cursor" class="inline-block w-[2px] h-4 bg-charcoal/60 align-middle ml-0.5 animate-pulse"></span>
+                    </div>
+                    <!-- Bottom bar -->
+                    <div class="px-4 md:px-5 pb-3 md:pb-4 flex items-center justify-between">
+                      <div class="flex items-center gap-2">
+                        <div class="flex items-center gap-1.5 border border-cream-dark/50 rounded-full px-2.5 py-1">
+                          <svg class="w-3.5 h-3.5 text-charcoal-light" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 12.75V12A2.25 2.25 0 014.5 9.75h15A2.25 2.25 0 0121.75 12v.75m-8.69-6.44l-2.12-2.12a1.5 1.5 0 00-1.061-.44H4.5A2.25 2.25 0 002.25 6v12a2.25 2.25 0 002.25 2.25h15A2.25 2.25 0 0021.75 18V9a2.25 2.25 0 00-2.25-2.25h-5.379a1.5 1.5 0 01-1.06-.44z" />
+                          </svg>
+                          <span class="text-xs text-charcoal">Brand assets</span>
+                        </div>
+                        <span class="text-lg text-charcoal-light/40 leading-none">+</span>
+                      </div>
+                      <button id="hiw-send-btn" class="bg-cream-dark/50 text-charcoal-light/50 rounded-xl px-4 py-2 text-xs font-semibold flex items-center gap-1.5 transition-all duration-300 cursor-default">
+                        <span>Let's go</span>
+                        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                          <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+                        </svg>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              ) : (
+                <span class="absolute inset-0 flex items-center justify-center text-charcoal/30 font-semibold">{step.placeholder}</span>
+              )}
             </div>
           </div>
           <!-- Text -->
@@ -61,3 +92,82 @@ const steps = [
     </div>
   </div>
 </section>
+
+<script>
+  import gsap from 'gsap';
+
+  const PROMPT = "Create an Instagram Reel, a YouTube video, and a Facebook post for our spring beauty launch. Use our brand colors and keep it on-brand.";
+
+  function runTypingLoop() {
+    const typingEl = document.getElementById('hiw-typing');
+    const cursorEl = document.getElementById('hiw-cursor');
+    const sendBtn = document.getElementById('hiw-send-btn');
+
+    if (!typingEl || !sendBtn || !cursorEl) return;
+
+    function resetState() {
+      typingEl.textContent = '';
+      cursorEl.style.display = '';
+      sendBtn.style.transform = '';
+      sendBtn.classList.remove('bg-claude-orange', 'text-white', 'cursor-pointer');
+      sendBtn.classList.add('bg-cream-dark/50', 'text-charcoal-light/50', 'cursor-default');
+    }
+
+    function animate() {
+      resetState();
+      const tl = gsap.timeline({
+        onComplete: () => {
+          setTimeout(animate, 6000);
+        },
+      });
+
+      // Phase 1: Typing
+      let charIndex = 0;
+      tl.to({}, {
+        duration: PROMPT.length * 0.028,
+        onUpdate: function() {
+          const progress = this.progress();
+          const newIndex = Math.floor(progress * PROMPT.length);
+          if (newIndex > charIndex) {
+            charIndex = newIndex;
+            typingEl.textContent = PROMPT.slice(0, charIndex);
+          }
+        },
+        onComplete: () => {
+          typingEl.textContent = PROMPT;
+        },
+        ease: 'none',
+      });
+
+      // Phase 2: Button activates
+      tl.to(sendBtn, {
+        duration: 0.3,
+        onStart: () => {
+          sendBtn.classList.remove('bg-cream-dark/50', 'text-charcoal-light/50', 'cursor-default');
+          sendBtn.classList.add('bg-claude-orange', 'text-white', 'cursor-pointer');
+        },
+        ease: 'power2.out',
+      }, '+=0.3');
+
+      // Phase 3: Button press
+      tl.to(sendBtn, { scale: 0.93, duration: 0.12, ease: 'power2.in' }, '+=0.4');
+      tl.to(sendBtn, {
+        scale: 1,
+        duration: 0.15,
+        ease: 'power2.out',
+        onComplete: () => {
+          cursorEl.style.display = 'none';
+        },
+      });
+    }
+
+    // Start immediately, loop forever
+    animate();
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', runTypingLoop);
+  } else {
+    runTypingLoop();
+  }
+</script>
