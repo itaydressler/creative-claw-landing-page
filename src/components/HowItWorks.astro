@@ -77,17 +77,17 @@ const steps = [
               ) : step.custom === 'iteration-demo' ? (
                 <IterationAnimation />
               ) : step.custom === 'brand-library' ? (
-                <div class="absolute inset-0 flex items-center justify-center p-6 md:p-8">
+                <div id="brand-library" class="absolute inset-0 flex items-center justify-center p-6 md:p-8">
                   {/* Floating abstract shapes */}
-                  <div class="brand-float-1 absolute top-[10%] left-[8%] w-16 h-16 rounded-full bg-gradient-to-br from-[#00704A]/40 to-[#D4E9E2]/60 blur-[1px]"></div>
-                  <div class="brand-float-2 absolute top-[15%] right-[12%] w-10 h-10 rounded-lg rotate-45 bg-gradient-to-br from-[#CBA258]/50 to-[#E8D5A8]/40"></div>
-                  <div class="brand-float-3 absolute bottom-[18%] left-[12%] w-8 h-8 rounded-full bg-gradient-to-br from-[#1E3932]/30 to-[#00704A]/40"></div>
-                  <div class="brand-float-1 absolute bottom-[12%] right-[8%] w-14 h-14 rounded-2xl rotate-12 bg-gradient-to-br from-[#D4E9E2]/50 to-[#00704A]/20 blur-[1px]"></div>
-                  <div class="brand-float-2 absolute top-[45%] left-[3%] w-6 h-6 rounded-full bg-[#CBA258]/30"></div>
-                  <div class="brand-float-3 absolute top-[8%] left-[45%] w-5 h-5 rounded-md rotate-[30deg] bg-[#1E3932]/20"></div>
+                  <div class="bl-shape absolute top-[10%] left-[8%] w-16 h-16 rounded-full bg-gradient-to-br from-[#00704A]/40 to-[#D4E9E2]/60 blur-[1px] opacity-0"></div>
+                  <div class="bl-shape absolute top-[15%] right-[12%] w-10 h-10 rounded-lg rotate-45 bg-gradient-to-br from-[#CBA258]/50 to-[#E8D5A8]/40 opacity-0"></div>
+                  <div class="bl-shape absolute bottom-[18%] left-[12%] w-8 h-8 rounded-full bg-gradient-to-br from-[#1E3932]/30 to-[#00704A]/40 opacity-0"></div>
+                  <div class="bl-shape absolute bottom-[12%] right-[8%] w-14 h-14 rounded-2xl rotate-12 bg-gradient-to-br from-[#D4E9E2]/50 to-[#00704A]/20 blur-[1px] opacity-0"></div>
+                  <div class="bl-shape absolute top-[45%] left-[3%] w-6 h-6 rounded-full bg-[#CBA258]/30 opacity-0"></div>
+                  <div class="bl-shape absolute top-[8%] left-[45%] w-5 h-5 rounded-md rotate-[30deg] bg-[#1E3932]/20 opacity-0"></div>
 
                   {/* Brand card */}
-                  <div class="bg-surface/95 backdrop-blur-sm rounded-[16px] p-5 md:p-6 shadow-xl w-full max-w-[280px] border border-cream-dark/30 relative z-10">
+                  <div id="bl-card" class="bg-surface/95 backdrop-blur-sm rounded-[16px] p-5 md:p-6 shadow-xl w-full max-w-[280px] border border-cream-dark/30 relative z-10 opacity-0">
                     {/* Logo + label */}
                     <div class="flex items-center gap-3 mb-4">
                       <img src="/on-brand/starbucks-logo.png" alt="Starbucks" class="h-8 object-contain" />
@@ -97,13 +97,13 @@ const steps = [
                     </div>
                     {/* Color palette */}
                     <div class="flex gap-2 mb-4">
-                      <div class="brand-swatch-pulse w-9 h-9 rounded-lg shadow-sm" style="background-color: #00704A;"></div>
-                      <div class="brand-swatch-pulse w-9 h-9 rounded-lg shadow-sm" style="background-color: #1E3932; animation-delay: 0.5s;"></div>
-                      <div class="brand-swatch-pulse w-9 h-9 rounded-lg shadow-sm" style="background-color: #D4E9E2; animation-delay: 1s;"></div>
-                      <div class="brand-swatch-pulse w-9 h-9 rounded-lg shadow-sm" style="background-color: #CBA258; animation-delay: 1.5s;"></div>
+                      <div class="bl-swatch w-9 h-9 rounded-lg shadow-sm opacity-0 scale-0" style="background-color: #00704A;"></div>
+                      <div class="bl-swatch w-9 h-9 rounded-lg shadow-sm opacity-0 scale-0" style="background-color: #1E3932;"></div>
+                      <div class="bl-swatch w-9 h-9 rounded-lg shadow-sm opacity-0 scale-0" style="background-color: #D4E9E2;"></div>
+                      <div class="bl-swatch w-9 h-9 rounded-lg shadow-sm opacity-0 scale-0" style="background-color: #CBA258;"></div>
                     </div>
                     {/* Font row */}
-                    <div class="flex items-center gap-2 mb-4">
+                    <div id="bl-font" class="flex items-center gap-2 mb-4 opacity-0">
                       <span class="text-xs font-semibold" style="color: #1E3932; font-family: 'Georgia', serif;">Sodo Sans</span>
                       <span class="text-[10px] text-charcoal-light/50">Aa</span>
                       <div class="flex-1 flex gap-1.5">
@@ -112,12 +112,14 @@ const steps = [
                       </div>
                     </div>
                     {/* Saved indicator */}
-                    <div class="flex items-center gap-1.5 text-[#00704A]">
+                    <div id="bl-saved" class="flex items-center gap-1.5 text-[#00704A] opacity-0">
                       <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>
                       <span class="text-[11px] font-semibold">Saved & reusable across all generations</span>
                     </div>
                   </div>
                 </div>
+              ) : (
+                <span class="absolute inset-0 flex items-center justify-center text-charcoal/30 font-semibold">{step.placeholder}</span>
               )}
             </div>
           </div>
@@ -209,9 +211,84 @@ const steps = [
     animate();
   }
 
+  function runBrandLibrary() {
+    const container = document.getElementById('brand-library');
+    if (!container) return;
+
+    const shapes = container.querySelectorAll('.bl-shape');
+    const card = document.getElementById('bl-card');
+    const swatches = container.querySelectorAll('.bl-swatch');
+    const font = document.getElementById('bl-font');
+    const saved = document.getElementById('bl-saved');
+
+    if (!card || !font || !saved) return;
+
+    // Fade in shapes with stagger
+    gsap.to(shapes, {
+      opacity: 1,
+      duration: 0.6,
+      stagger: 0.15,
+      ease: 'power2.out',
+    });
+
+    // Float shapes forever
+    shapes.forEach((shape, i) => {
+      gsap.to(shape, {
+        y: `+=${8 + i * 3}`,
+        rotation: `+=${4 + i * 2}`,
+        duration: 3 + i * 0.7,
+        repeat: -1,
+        yoyo: true,
+        ease: 'sine.inOut',
+        delay: i * 0.3,
+      });
+    });
+
+    // Card entrance
+    gsap.to(card, {
+      opacity: 1,
+      y: 0,
+      duration: 0.7,
+      ease: 'back.out(1.4)',
+      delay: 0.4,
+    });
+    gsap.set(card, { y: 20 });
+
+    // Swatches pop in
+    gsap.to(swatches, {
+      opacity: 1,
+      scale: 1,
+      duration: 0.4,
+      stagger: 0.12,
+      ease: 'back.out(2)',
+      delay: 0.9,
+    });
+
+    // Swatch subtle pulse loop
+    swatches.forEach((swatch, i) => {
+      gsap.to(swatch, {
+        scale: 1.08,
+        boxShadow: '0 2px 12px rgba(0,0,0,0.15)',
+        duration: 1.5,
+        repeat: -1,
+        yoyo: true,
+        ease: 'sine.inOut',
+        delay: 1.5 + i * 0.4,
+      });
+    });
+
+    // Font row fade in
+    gsap.to(font, { opacity: 1, x: 0, duration: 0.5, ease: 'power2.out', delay: 1.5 });
+    gsap.set(font, { x: -10 });
+
+    // Saved indicator
+    gsap.to(saved, { opacity: 1, duration: 0.5, ease: 'power2.out', delay: 1.9 });
+  }
+
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', runTypingLoop);
+    document.addEventListener('DOMContentLoaded', () => { runTypingLoop(); runBrandLibrary(); });
   } else {
     runTypingLoop();
+    runBrandLibrary();
   }
 </script>
