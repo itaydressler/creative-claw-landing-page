@@ -157,8 +157,12 @@
       const email = (document.getElementById('beta-email') as HTMLInputElement)?.value;
       const platform = (form.querySelector('input[name="platform"]:checked') as HTMLInputElement)?.value;
 
-      // TODO: Send to backend
-      console.log('Beta signup:', { email, platform });
+      // Send to backend (fire and forget, don't block UI)
+      fetch('https://app.creativeclaw.co/api/form-submissions', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, platform }),
+      }).catch(() => {});
 
       // Show success
       gsap.to(form, {
