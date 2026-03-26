@@ -127,6 +127,7 @@
     document.querySelectorAll('a[href="#waitlist"], a[href="#beta"]').forEach(el => {
       el.addEventListener('click', (e) => {
         e.preventDefault();
+        window.posthog?.capture('cta_click', { source: (e.currentTarget as HTMLElement)?.closest('section')?.id || 'unknown' });
         openDialog();
       });
     });
@@ -151,11 +152,21 @@
       if (e.key === 'Escape' && !backdrop.classList.contains('hidden')) closeDialog();
     });
 
+    // Email focus tracking
+    const emailInput = document.getElementById('beta-email');
+    emailInput?.addEventListener('focus', () => {
+      window.posthog?.capture('email_focus');
+    }, { once: true });
+
     // Form submit
     form?.addEventListener('submit', (e) => {
       e.preventDefault();
       const email = (document.getElementById('beta-email') as HTMLInputElement)?.value;
       const platform = (form.querySelector('input[name="platform"]:checked') as HTMLInputElement)?.value;
+
+      // Track submission
+      window.posthog?.capture('beta_signup', { email, platform });
+      window.posthog?.identify(email, { platform });
 
       // Send to backend (fire and forget, don't block UI)
       fetch('https://app.creativeclaw.co/api/form-submissions', {
