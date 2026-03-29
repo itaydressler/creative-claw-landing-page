@@ -36,9 +36,12 @@
 
       <!-- Social Media Posts — tall card with pink bg -->
       <div class="md:col-span-5 bg-pink rounded-[24px] p-7 md:p-8 relative overflow-hidden min-h-[380px] md:min-h-[480px] flex flex-col justify-between">
-        <!-- Image -->
-        <div class="flex-1 relative flex items-center justify-center mb-4">
-          <img src="/use-cases/social-posts.png" alt="Social media post designs overlapping" class="w-[90%] max-w-[380px] h-auto drop-shadow-xl object-contain" />
+        <!-- Animated clay social icons -->
+        <div id="social-posts-anim" class="flex-1 relative flex items-center justify-center mb-4">
+          <img src="/use-cases/social-4.png" alt="Instagram clay post" class="social-card absolute w-[50%] max-w-[190px] drop-shadow-xl opacity-0 z-20" style="left: 22%; top: 8%;" />
+          <img src="/use-cases/social-1.png" alt="X clay icon" class="social-card absolute w-[30%] max-w-[120px] drop-shadow-xl opacity-0" style="left: 3%; top: 45%;" />
+          <img src="/use-cases/social-2.png" alt="Facebook clay icon" class="social-card absolute w-[26%] max-w-[100px] drop-shadow-xl opacity-0" style="left: 5%; top: 5%;" />
+          <img src="/use-cases/social-3.png" alt="LinkedIn clay icon" class="social-card absolute w-[32%] max-w-[130px] drop-shadow-xl opacity-0" style="right: 3%; top: 40%;" />
         </div>
         <!-- Text -->
         <div>
@@ -211,3 +214,37 @@
     </div>
   </div>
 </section>
+
+<script>
+  import gsap from 'gsap';
+
+  function animateSocialPosts() {
+    const cards = document.querySelectorAll('.social-card');
+    if (!cards.length) return;
+
+    // Stagger pop-in
+    gsap.fromTo(cards,
+      { opacity: 0, y: 30, scale: 0.8 },
+      { opacity: 1, y: 0, scale: 1, duration: 0.6, stagger: 0.2, ease: 'back.out(1.5)' }
+    );
+
+    // Gentle floating bob on each card
+    cards.forEach((card, i) => {
+      gsap.to(card, {
+        y: `+=${6 + i * 3}`,
+        rotation: `+=${1.5 - i * 1.5}`,
+        duration: 2.5 + i * 0.5,
+        repeat: -1,
+        yoyo: true,
+        ease: 'sine.inOut',
+        delay: i * 0.4,
+      });
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', animateSocialPosts);
+  } else {
+    animateSocialPosts();
+  }
+</script>
