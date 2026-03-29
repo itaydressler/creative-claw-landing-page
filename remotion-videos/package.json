@@ -1,0 +1,26 @@
+{
+  "name": "remotion-videos",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "studio": "remotion studio src/index.ts",
+    "render": "remotion render src/index.ts ProductVideoDemo --output out/product-video.mp4",
+    "render:webm": "remotion render src/index.ts ProductVideoDemo --output out/product-video.webm --codec vp8"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "packageManager": "pnpm@10.26.0",
+  "dependencies": {
+    "@remotion/cli": "^4.0.441",
+    "@remotion/light-leaks": "^4.0.441",
+    "@remotion/renderer": "^4.0.441",
+    "@remotion/transitions": "^4.0.441",
+    "@types/react": "^19.2.14",
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4",
+    "remotion": "^4.0.441",
+    "typescript": "^6.0.2"
+  }
+}

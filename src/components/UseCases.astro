@@ -2,7 +2,7 @@
 ---
 
 <section id="use-cases" class="py-20 md:py-28 px-6">
-  <div class="mx-auto max-w-[1200px]">
+  <div class="mx-auto max-w-[1000px]">
     <h2 class="font-display text-[2rem] md:text-[3.125rem] leading-[1] tracking-[-0.02em] text-charcoal text-center">
       What Will You Create?
     </h2>
@@ -10,157 +10,189 @@
       From social content to product videos — all on brand, all in one conversation.
     </p>
 
-    <!-- Bento Grid -->
-    <div class="mt-14 grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-5">
+    <!-- Bento Grid — using nested flex for proper square cards -->
+    <div class="mt-14 flex flex-col gap-4 md:gap-5">
 
-      <!-- Row 1: Short-Form Video (large, 7 cols) + Social Media Posts (5 cols) -->
-
-      <!-- Short-Form Video — tall card -->
-      <div class="md:col-span-7 bg-purple rounded-[24px] p-7 md:p-8 relative overflow-hidden min-h-[380px] md:min-h-[480px] flex flex-col justify-between">
-        <!-- Video -->
-        <div class="flex-1 relative flex items-center justify-center mb-4">
-          <div class="w-[180px] md:w-[220px] rotate-[-3deg] rounded-[20px] overflow-hidden shadow-2xl">
-            <video autoplay loop muted playsinline class="w-full h-auto">
-              <source src="/lumiglow-morning-routine-real-talk.mp4" type="video/mp4" />
-            </video>
+      <!-- Block 1: Short-Form Video (tall left) + right column (Social Media + 2 squares) -->
+      <div class="flex flex-col md:flex-row gap-4 md:gap-5">
+        <!-- Short-Form Video — tall left card -->
+        <div class="md:w-5/12 bg-purple rounded-[24px] p-7 md:p-8 relative overflow-hidden min-h-[340px] flex flex-col">
+          <div>
+            <h3 class="font-display text-2xl md:text-3xl text-purple-ink">Short-Form Video</h3>
+          </div>
+          <div class="flex-1 relative flex items-center justify-center my-4">
+            <div class="w-[150px] md:w-[190px] rotate-[-5deg] rounded-[20px] overflow-hidden shadow-2xl relative z-10 -mr-8">
+              <video autoplay loop muted playsinline class="w-full h-auto">
+                <source src="/lumiglow-morning-routine-real-talk.mp4" type="video/mp4" />
+              </video>
+            </div>
+            <div class="w-[150px] md:w-[190px] rotate-[5deg] rounded-[20px] overflow-hidden shadow-2xl relative z-20 -ml-8">
+              <video autoplay loop muted playsinline class="w-full h-auto">
+                <source src="/use-cases/tiktoker.mp4" type="video/mp4" />
+              </video>
+            </div>
+          </div>
+          <div>
+            <p class="text-base text-purple-ink leading-relaxed max-w-xs">
+              Create engaging Reels, TikToks & Shorts with voiceover, music & narration
+            </p>
           </div>
         </div>
-        <!-- Text -->
-        <div>
-          <h3 class="font-display text-2xl md:text-3xl text-charcoal">Short-Form Video</h3>
-          <p class="mt-2 text-sm text-charcoal/60 leading-relaxed max-w-xs">
-            Create engaging Reels, TikToks & Shorts with voiceover, music & narration
-          </p>
-        </div>
-      </div>
 
-      <!-- Social Media Posts — tall card with pink bg -->
-      <div class="md:col-span-5 bg-pink rounded-[24px] p-7 md:p-8 relative overflow-hidden min-h-[380px] md:min-h-[480px] flex flex-col justify-between">
-        <!-- Animated clay social icons -->
-        <div id="social-posts-anim" class="flex-1 relative flex items-center justify-center mb-4">
-          <img src="/use-cases/social-4.png" alt="Instagram clay post" class="social-card absolute w-[50%] max-w-[190px] drop-shadow-xl opacity-0 z-20" style="left: 22%; top: 8%;" />
-          <img src="/use-cases/social-1.png" alt="X clay icon" class="social-card absolute w-[30%] max-w-[120px] drop-shadow-xl opacity-0" style="left: 3%; top: 45%;" />
-          <img src="/use-cases/social-2.png" alt="Facebook clay icon" class="social-card absolute w-[26%] max-w-[100px] drop-shadow-xl opacity-0" style="left: 5%; top: 5%;" />
-          <img src="/use-cases/social-3.png" alt="LinkedIn clay icon" class="social-card absolute w-[32%] max-w-[130px] drop-shadow-xl opacity-0" style="right: 3%; top: 40%;" />
-        </div>
-        <!-- Text -->
-        <div>
-          <h3 class="font-display text-2xl md:text-3xl text-charcoal">Social Media Posts</h3>
-          <p class="mt-2 text-sm text-charcoal/60 leading-relaxed max-w-xs">
-            Design on-brand posts for every platform in seconds
-          </p>
-        </div>
-      </div>
+        <!-- Right column -->
+        <div class="md:w-7/12 flex flex-col gap-4 md:gap-5">
+          <!-- Social Media Posts -->
+          <div class="bg-pink rounded-[24px] p-7 md:p-8 relative overflow-visible min-h-[220px] flex flex-col justify-end">
+            <div class="flex-1 relative mb-4">
+              <img src="/use-cases/instagram-post.png" alt="Instagram post mockup" class="absolute drop-shadow-2xl rotate-[-6deg] z-10 rounded-lg" style="width: 30%; right: 18%; top: -22px;" />
+              <img src="/use-cases/linkedin-post.png" alt="LinkedIn post mockup" class="absolute drop-shadow-2xl rotate-[5deg] z-20 rounded-lg" style="width: 30%; right: 2%; top: -20px;" />
+            </div>
+            <div class="relative z-10">
+              <h3 class="font-display text-2xl md:text-3xl text-pink-ink">Social Media Posts</h3>
+              <p class="mt-2 text-base text-pink-ink leading-relaxed max-w-[200px]">
+                Design on-brand posts for every platform in seconds
+              </p>
+            </div>
+          </div>
 
-      <!-- Row 2: Product Videos (5 cols) + Memes (3 cols) + YouTube Thumbnails (4 cols) -->
+          <!-- Two square cards side by side -->
+          <div class="flex flex-col sm:flex-row gap-4 md:gap-5">
+            <!-- Product Videos — square -->
+            <div class="sm:w-[57%] bg-green rounded-[24px] p-6 md:p-7 relative overflow-hidden flex flex-col justify-between aspect-square">
+              <div class="flex-1 flex items-center justify-center mb-3">
+                <div class="w-full rounded-[12px] overflow-hidden shadow-lg">
+                  <video autoplay loop muted playsinline class="w-full h-auto">
+                    <source src="/use-cases/product-video.mp4" type="video/mp4" />
+                  </video>
+                </div>
+              </div>
+              <div>
+                <h3 class="font-display text-xl md:text-2xl text-green-ink">Product Videos</h3>
+                <p class="mt-1 text-base text-green-ink leading-relaxed">
+                  Programmatic videos with Remotion
+                </p>
+              </div>
+            </div>
 
-      <!-- Product Videos with Remotion -->
-      <div class="md:col-span-5 bg-green rounded-[24px] p-7 md:p-8 relative overflow-hidden min-h-[320px] md:min-h-[380px] flex flex-col justify-between">
-        <!-- Video -->
-        <div class="flex-1 relative flex items-center justify-center mb-4">
-          <div class="w-full rounded-[16px] overflow-hidden shadow-lg">
-            <video
-              autoplay
-              loop
-              muted
-              playsinline
-              poster="/use-cases/product-video-poster.png"
-              class="w-full h-auto"
-            >
-              <source src="/use-cases/product-video.mp4" type="video/mp4" />
-            </video>
+            <!-- Logo Design — square -->
+            <div class="sm:w-[43%] bg-yellow rounded-[24px] p-6 md:p-7 relative overflow-hidden flex flex-col aspect-square">
+              <div class="mb-3">
+                <h3 class="font-display text-xl md:text-2xl text-yellow-ink">Logo Design</h3>
+                <p class="mt-1 text-base text-yellow-ink leading-relaxed">
+                  Generate & iterate on logos with AI
+                </p>
+              </div>
+              <div class="flex-1 flex items-center justify-center gap-3">
+                <img src="/use-cases/logo-1.png" alt="AI-generated logo" class="w-[30%] h-auto drop-shadow-lg" />
+                <img src="/use-cases/logo-2.png" alt="AI-generated logo" class="w-[30%] h-auto drop-shadow-lg" />
+                <img src="/use-cases/logo-3.png" alt="AI-generated logo" class="w-[30%] h-auto drop-shadow-lg" />
+              </div>
+            </div>
           </div>
         </div>
-        <!-- Text -->
-        <div>
-          <h3 class="font-display text-xl md:text-2xl text-charcoal">Product Videos</h3>
-          <p class="mt-2 text-sm text-charcoal/60 leading-relaxed">
-            Programmatic videos with Remotion — fully customizable, on-brand
-          </p>
+      </div>
+
+      <!-- Block 2: Mirrored — left column (Product Marketing + 2 squares) + Ad Creatives (tall right) -->
+      <div class="flex flex-col md:flex-row gap-4 md:gap-5">
+        <!-- Left column -->
+        <div class="md:w-7/12 flex flex-col gap-4 md:gap-5">
+          <!-- Product Marketing -->
+          <div class="bg-blue rounded-[24px] p-7 md:p-8 relative overflow-hidden min-h-[220px] flex flex-col justify-end">
+            <div class="flex-1 relative flex items-center justify-center mb-4">
+              <div class="w-full flex gap-3">
+                <div class="flex-1 bg-white/30 rounded-2xl h-28 md:h-36"></div>
+                <div class="flex-1 bg-white/30 rounded-2xl h-28 md:h-36"></div>
+                <div class="flex-1 bg-white/30 rounded-2xl h-28 md:h-36"></div>
+              </div>
+            </div>
+            <div>
+              <h3 class="font-display text-2xl md:text-3xl text-blue-ink">Product Marketing</h3>
+              <p class="mt-2 text-base text-blue-ink leading-relaxed max-w-xs">
+                Launch visuals, feature announcements & product shots
+              </p>
+            </div>
+          </div>
+
+          <!-- Two square cards side by side -->
+          <div class="flex flex-col sm:flex-row gap-4 md:gap-5">
+            <!-- Email Campaigns — square -->
+            <div class="sm:w-[57%] bg-orange rounded-[24px] p-6 md:p-7 relative overflow-hidden flex flex-col justify-between aspect-square">
+              <div class="flex-1 flex flex-col gap-2 mb-3">
+                <div class="w-full bg-white/30 rounded-xl flex-1"></div>
+                <div class="w-3/4 bg-white/30 rounded-xl flex-1"></div>
+                <div class="w-full bg-white/30 rounded-xl flex-[2]"></div>
+              </div>
+              <div>
+                <h3 class="font-display text-xl md:text-2xl text-orange-ink">Email Campaigns</h3>
+                <p class="mt-1 text-base text-orange-ink leading-relaxed">
+                  Headers, banners & visuals for campaigns
+                </p>
+              </div>
+            </div>
+
+            <!-- Voiceover & Audio — square -->
+            <div class="sm:w-[43%] bg-purple rounded-[24px] p-6 md:p-7 relative overflow-hidden flex flex-col aspect-square">
+              <div class="mb-3">
+                <h3 class="font-display text-xl md:text-2xl text-purple-ink">Voiceover & Audio</h3>
+                <p class="mt-1 text-base text-purple-ink leading-relaxed">
+                  AI narration & sound effects
+                </p>
+              </div>
+              <div class="flex-1 flex flex-col gap-2">
+                <div class="w-full bg-white/40 rounded-xl p-3 shadow-lg flex items-center gap-2">
+                  <div class="w-7 h-7 rounded-full bg-claude-orange flex items-center justify-center flex-shrink-0">
+                    <svg class="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                  </div>
+                  <div class="flex items-end gap-[2px] h-6 flex-1">
+                    <div class="flex-1 bg-claude-orange/60 rounded-full" style="height: 40%"></div>
+                    <div class="flex-1 bg-claude-orange/60 rounded-full" style="height: 70%"></div>
+                    <div class="flex-1 bg-claude-orange/60 rounded-full" style="height: 55%"></div>
+                    <div class="flex-1 bg-claude-orange/60 rounded-full" style="height: 85%"></div>
+                    <div class="flex-1 bg-claude-orange/60 rounded-full" style="height: 45%"></div>
+                    <div class="flex-1 bg-claude-orange/60 rounded-full" style="height: 90%"></div>
+                    <div class="flex-1 bg-claude-orange/40 rounded-full" style="height: 50%"></div>
+                    <div class="flex-1 bg-claude-orange/40 rounded-full" style="height: 35%"></div>
+                  </div>
+                </div>
+                <div class="w-full bg-white/40 rounded-xl p-3 shadow-lg flex items-center gap-2">
+                  <div class="w-7 h-7 rounded-full bg-charcoal flex items-center justify-center flex-shrink-0">
+                    <svg class="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 9l10.5-3m0 6.553v3.75a2.25 2.25 0 01-1.632 2.163l-1.32.377a1.803 1.803 0 11-.99-3.467l2.31-.66a2.25 2.25 0 001.632-2.163zm0 0V2.25L9 5.25v10.303m0 0v3.75a2.25 2.25 0 01-1.632 2.163l-1.32.377a1.803 1.803 0 01-.99-3.467l2.31-.66A2.25 2.25 0 009 15.553z" /></svg>
+                  </div>
+                  <div class="text-xs font-semibold text-charcoal">Music</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Ad Creatives — tall right card -->
+        <div class="md:w-5/12 bg-pink rounded-[24px] p-7 md:p-8 relative overflow-hidden min-h-[340px] flex flex-col">
+          <div>
+            <h3 class="font-display text-2xl md:text-3xl text-pink-ink">Ad Creatives</h3>
+          </div>
+          <div class="flex-1 relative flex items-center justify-center my-4">
+            <div class="w-full flex flex-col gap-3">
+              <div class="w-full bg-white/30 rounded-2xl h-20 md:h-28"></div>
+              <div class="flex gap-3">
+                <div class="flex-1 bg-white/30 rounded-2xl h-16 md:h-24"></div>
+                <div class="flex-1 bg-white/30 rounded-2xl h-16 md:h-24"></div>
+              </div>
+              <div class="w-full bg-white/30 rounded-2xl h-16 md:h-20"></div>
+            </div>
+          </div>
+          <div>
+            <p class="text-base text-pink-ink leading-relaxed max-w-xs">
+              High-converting ads for Facebook, Instagram & YouTube
+            </p>
+          </div>
         </div>
       </div>
 
-      <!-- Memes & Viral Content -->
-      <div class="md:col-span-3 bg-yellow rounded-[24px] p-6 md:p-7 relative overflow-hidden min-h-[320px] md:min-h-[380px] flex flex-col justify-between">
-        <!-- Image -->
-        <div class="flex-1 relative flex items-center justify-center mb-4">
-          <img src="/use-cases/memes.png" alt="Stacked meme cards" class="w-[95%] max-w-[260px] h-auto drop-shadow-xl object-contain" />
-        </div>
-        <!-- Text -->
-        <div>
-          <h3 class="font-display text-xl md:text-2xl text-charcoal">Memes</h3>
-          <p class="mt-1 text-sm text-charcoal/60 leading-relaxed">
-            Trending formats & viral content in seconds
-          </p>
-        </div>
-      </div>
+      <!-- Block 3: Remotion Videos + Landing Pages -->
+      <div class="flex flex-col md:flex-row gap-4 md:gap-5">
 
-      <!-- YouTube Thumbnails -->
-      <div class="md:col-span-4 bg-blue rounded-[24px] p-6 md:p-7 relative overflow-hidden min-h-[320px] md:min-h-[380px] flex flex-col justify-between">
-        <!-- Image -->
-        <div class="flex-1 relative flex items-center justify-center mb-4">
-          <img src="/use-cases/thumbnails.png" alt="YouTube thumbnail designs" class="w-[95%] max-w-[340px] h-auto drop-shadow-xl object-contain" />
-        </div>
-        <!-- Text -->
-        <div>
-          <h3 class="font-display text-xl md:text-2xl text-charcoal">Thumbnails</h3>
-          <p class="mt-1 text-sm text-charcoal/60 leading-relaxed">
-            Eye-catching YouTube thumbnails that drive clicks
-          </p>
-        </div>
-      </div>
-
-      <!-- Row 3: Ad Creatives (4 cols) + Email Campaigns (4 cols) + Logo Animations (4 cols) -->
-
-      <!-- Ad Creatives -->
-      <div class="md:col-span-4 bg-pink rounded-[24px] p-6 md:p-7 relative overflow-hidden min-h-[300px] md:min-h-[340px] flex flex-col justify-between">
-        <!-- Image -->
-        <div class="flex-1 relative flex items-center justify-center mb-4">
-          <img src="/use-cases/ad-creatives.png" alt="Ad creative banner designs" class="w-[95%] max-w-[300px] h-auto drop-shadow-xl object-contain" />
-        </div>
-        <!-- Text -->
-        <div>
-          <h3 class="font-display text-xl md:text-2xl text-charcoal">Ad Creatives</h3>
-          <p class="mt-1 text-sm text-charcoal/60 leading-relaxed">
-            High-converting ads for Facebook, Instagram & YouTube
-          </p>
-        </div>
-      </div>
-
-      <!-- Email Campaign Assets -->
-      <div class="md:col-span-4 bg-orange rounded-[24px] p-6 md:p-7 relative overflow-hidden min-h-[300px] md:min-h-[340px] flex flex-col justify-between">
-        <!-- Image -->
-        <div class="flex-1 relative flex items-center justify-center mb-4">
-          <img src="/use-cases/email-campaigns.png" alt="Email newsletter designs" class="w-[90%] max-w-[300px] h-auto drop-shadow-xl object-contain" />
-        </div>
-        <!-- Text -->
-        <div>
-          <h3 class="font-display text-xl md:text-2xl text-charcoal">Email Campaigns</h3>
-          <p class="mt-1 text-sm text-charcoal/60 leading-relaxed">
-            Headers, banners & visuals for personalized campaigns
-          </p>
-        </div>
-      </div>
-
-      <!-- Logo Animations -->
-      <div class="md:col-span-4 bg-purple rounded-[24px] p-6 md:p-7 relative overflow-hidden min-h-[300px] md:min-h-[340px] flex flex-col justify-between">
-        <!-- Image -->
-        <div class="flex-1 relative flex items-center justify-center mb-4">
-          <img src="/use-cases/logo-animations.png" alt="3D logo animation burst" class="w-[90%] max-w-[280px] h-auto drop-shadow-xl object-contain" />
-        </div>
-        <!-- Text -->
-        <div>
-          <h3 class="font-display text-xl md:text-2xl text-charcoal">Logo Animations</h3>
-          <p class="mt-1 text-sm text-charcoal/60 leading-relaxed">
-            Animate your logo with burst effects & motion
-          </p>
-        </div>
-      </div>
-
-      <!-- Row 4: Remotion Videos (7 cols) + Landing Pages (5 cols) -->
-
-      <!-- Remotion Videos -->
-      <div class="md:col-span-7 bg-charcoal rounded-[24px] p-7 md:p-8 relative overflow-hidden min-h-[380px] md:min-h-[480px] flex flex-col justify-between">
+        <!-- Remotion Videos -->
+        <div class="md:w-7/12 bg-charcoal rounded-[24px] p-7 md:p-8 relative overflow-hidden min-h-[380px] md:min-h-[480px] flex flex-col justify-between">
         <!-- Floating React icon -->
         <div class="absolute top-4 right-4 md:top-6 md:right-6 z-20">
           <div class="w-12 h-12 rounded-xl bg-[#61DAFB]/20 backdrop-blur-sm flex items-center justify-center shadow-lg border border-[#61DAFB]/30">
@@ -189,25 +221,35 @@
           </div>
           <div>
             <h3 class="font-display text-2xl md:text-3xl text-white">Remotion Videos</h3>
-            <p class="mt-2 text-sm text-white/60 leading-relaxed max-w-md">
+            <p class="mt-2 text-base text-white/60 leading-relaxed max-w-md">
               Build full video productions with Remotion — insert AI-generated images, video clips & text-to-speech narration, all assembled programmatically
             </p>
           </div>
         </div>
       </div>
 
-      <!-- Landing Pages -->
-      <div class="md:col-span-5 bg-blue rounded-[24px] p-7 md:p-8 relative overflow-hidden min-h-[380px] md:min-h-[480px] flex flex-col justify-between">
-        <!-- Image -->
+        <!-- Landing Pages -->
+        <div class="md:w-5/12 bg-blue rounded-[24px] p-7 md:p-8 relative overflow-hidden min-h-[380px] md:min-h-[480px] flex flex-col justify-between">
+        <!-- Placeholder visual -->
         <div class="flex-1 relative flex items-center justify-center mb-4">
-          <img src="/use-cases/generate-webpages.webp" alt="AI-generated landing page" class="w-[95%] max-w-[400px] h-auto rounded-[12px] shadow-2xl object-contain" />
+          <div class="w-full flex flex-col gap-3">
+            <div class="w-full bg-white/30 rounded-2xl h-8"></div>
+            <div class="w-2/3 bg-white/30 rounded-2xl h-6"></div>
+            <div class="w-full bg-white/30 rounded-2xl h-32"></div>
+            <div class="flex gap-3">
+              <div class="flex-1 bg-white/30 rounded-2xl h-16"></div>
+              <div class="flex-1 bg-white/30 rounded-2xl h-16"></div>
+            </div>
+            <div class="w-1/3 bg-white/30 rounded-full h-10"></div>
+          </div>
         </div>
         <!-- Text -->
         <div>
-          <h3 class="font-display text-2xl md:text-3xl text-charcoal">Landing Pages</h3>
-          <p class="mt-2 text-sm text-charcoal/60 leading-relaxed max-w-xs">
+          <h3 class="font-display text-2xl md:text-3xl text-blue-ink">Landing Pages</h3>
+          <p class="mt-2 text-base text-blue-ink leading-relaxed max-w-xs">
             Generate complete landing pages with AI imagery, copy & design — ship faster than ever
           </p>
+        </div>
         </div>
       </div>
 
@@ -215,36 +257,3 @@
   </div>
 </section>
 
-<script>
-  import gsap from 'gsap';
-
-  function animateSocialPosts() {
-    const cards = document.querySelectorAll('.social-card');
-    if (!cards.length) return;
-
-    // Stagger pop-in
-    gsap.fromTo(cards,
-      { opacity: 0, y: 30, scale: 0.8 },
-      { opacity: 1, y: 0, scale: 1, duration: 0.6, stagger: 0.2, ease: 'back.out(1.5)' }
-    );
-
-    // Gentle floating bob on each card
-    cards.forEach((card, i) => {
-      gsap.to(card, {
-        y: `+=${6 + i * 3}`,
-        rotation: `+=${1.5 - i * 1.5}`,
-        duration: 2.5 + i * 0.5,
-        repeat: -1,
-        yoyo: true,
-        ease: 'sine.inOut',
-        delay: i * 0.4,
-      });
-    });
-  }
-
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', animateSocialPosts);
-  } else {
-    animateSocialPosts();
-  }
-</script>

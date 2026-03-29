@@ -34,7 +34,7 @@ const steps = [
 ---
 
 <section id="how-it-works" class="py-20 md:py-28 px-6">
-  <div class="mx-auto max-w-[1200px]">
+  <div class="mx-auto max-w-[1000px]">
     <h2 class="font-display text-[2rem] md:text-[3.125rem] leading-[1] tracking-[-0.02em] text-charcoal text-center">
       How CreativeClaw Works
     </h2>
@@ -44,7 +44,7 @@ const steps = [
         <div class={`grid md:grid-cols-2 gap-10 md:gap-16 items-center ${i % 2 === 1 ? 'md:direction-rtl' : ''}`}>
           <!-- Image -->
           <div class={`${i % 2 === 1 ? 'md:order-2' : ''}`}>
-            <div class={`${step.bg} rounded-[20px] ${step.custom === 'brand-library' ? 'min-h-[400px] md:min-h-[460px]' : 'aspect-[4/3]'} relative overflow-hidden`}>
+            <div class={`${step.bg} rounded-[20px] aspect-square max-w-[445px] max-h-[445px] relative overflow-hidden`}>
               {step.image ? (
                 <img src={step.image} alt={step.title} class="absolute bottom-0 right-0 w-full" />
               ) : step.custom === 'typing-demo' ? (

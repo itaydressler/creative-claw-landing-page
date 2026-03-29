@@ -44,6 +44,15 @@
   --color-blue: #B8CEDC;
   --color-purple: #C3B2E7;
 
+  /* Colors — Accent Ink (dark text for use on each accent bg) */
+  --color-coral-ink: #582615;
+  --color-pink-ink: #52225E;
+  --color-orange-ink: #582615;
+  --color-yellow-ink: #4B411E;
+  --color-green-ink: #1D4720;
+  --color-blue-ink: #184363;
+  --color-purple-ink: #52225E;
+
   /* Fonts */
   --font-display: "Larken", Georgia, serif;
   --font-body: "Hellix", system-ui, sans-serif;
