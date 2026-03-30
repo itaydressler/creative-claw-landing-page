@@ -129,6 +129,14 @@
 
   const PROMPT = "Create an Instagram Reel, a YouTube video, and a Facebook post for our spring beauty launch. Use our brand colors and keep it on-brand.";
 
+  // Make "Let's go" button open the beta dialog
+  const heroSendBtn = document.getElementById('hero-send-btn');
+  heroSendBtn?.addEventListener('click', () => {
+    (window as any).posthog?.capture('cta_click', { source: 'hero_lets_go' });
+    const dialog = document.getElementById('beta-dialog') as HTMLDialogElement | null;
+    dialog?.showModal();
+  });
+
   function runHeroAnimation() {
     const typingEl = document.getElementById('hero-typing');
     const cursorEl = document.getElementById('hero-cursor');
