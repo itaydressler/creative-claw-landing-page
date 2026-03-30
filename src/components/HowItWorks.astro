@@ -6,7 +6,7 @@ const steps = [
     number: '01',
     title: 'Connect to Claude',
     description: 'Connect our plugin creative-claw@plugins. This installs the MCP and Skills for Claude — instant access to every top AI model.',
-    image: '/how-it-works/claude-connections.png',
+    image: '/how-it-works/claude-connections-2.webp',
     bg: 'bg-coral',
   },
   {
@@ -46,7 +46,7 @@ const steps = [
           <div class={`${i % 2 === 1 ? 'md:order-2' : ''}`}>
             <div class={`${step.bg} rounded-[20px] aspect-square max-w-[445px] max-h-[445px] relative overflow-hidden`}>
               {step.image ? (
-                <img src={step.image} alt={step.title} class="absolute bottom-0 right-0 w-full" />
+                <img src={step.image} alt={step.title} class="absolute inset-0 w-full h-full object-contain" />
               ) : step.custom === 'typing-demo' ? (
                 <div class="absolute inset-0 flex items-center justify-center p-6 md:p-8">
                   <div class="bg-surface rounded-[20px] shadow-2xl w-full max-w-md border border-cream-dark/40">
