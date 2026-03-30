@@ -79,6 +79,77 @@ h1, h2, h3, h4 {
   font-family: var(--font-display);
 }
 
+/* Voice visualizer bars */
+.voice-bars {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  height: 100%;
+  width: 100%;
+}
+
+.voice-bars span {
+  flex: 1;
+  max-width: 6px;
+  height: 20%;
+  border-radius: 999px;
+  background: linear-gradient(to top, #52225E, #9b6dba, #52225E);
+  animation: voice-bounce 800ms ease-in-out infinite alternate;
+}
+
+.voice-bars span:nth-child(2n)  { animation-name: voice-bounce-2; }
+.voice-bars span:nth-child(3n)  { animation-name: voice-bounce-3; }
+
+.voice-bars span:nth-child(1)  { animation-delay: 0ms; }
+.voice-bars span:nth-child(2)  { animation-delay: 60ms; }
+.voice-bars span:nth-child(3)  { animation-delay: 120ms; }
+.voice-bars span:nth-child(4)  { animation-delay: 180ms; }
+.voice-bars span:nth-child(5)  { animation-delay: 240ms; }
+.voice-bars span:nth-child(6)  { animation-delay: 300ms; }
+.voice-bars span:nth-child(7)  { animation-delay: 100ms; }
+.voice-bars span:nth-child(8)  { animation-delay: 200ms; }
+.voice-bars span:nth-child(9)  { animation-delay: 50ms; }
+.voice-bars span:nth-child(10) { animation-delay: 150ms; }
+.voice-bars span:nth-child(11) { animation-delay: 280ms; }
+.voice-bars span:nth-child(12) { animation-delay: 30ms; }
+.voice-bars span:nth-child(13) { animation-delay: 170ms; }
+.voice-bars span:nth-child(14) { animation-delay: 260ms; }
+.voice-bars span:nth-child(15) { animation-delay: 90ms; }
+.voice-bars span:nth-child(16) { animation-delay: 210ms; }
+.voice-bars span:nth-child(17) { animation-delay: 40ms; }
+.voice-bars span:nth-child(18) { animation-delay: 130ms; }
+.voice-bars span:nth-child(19) { animation-delay: 230ms; }
+.voice-bars span:nth-child(20) { animation-delay: 70ms; }
+.voice-bars span:nth-child(21) { animation-delay: 190ms; }
+.voice-bars span:nth-child(22) { animation-delay: 110ms; }
+.voice-bars span:nth-child(23) { animation-delay: 250ms; }
+.voice-bars span:nth-child(24) { animation-delay: 20ms; }
+.voice-bars span:nth-child(25) { animation-delay: 160ms; }
+.voice-bars span:nth-child(26) { animation-delay: 80ms; }
+.voice-bars span:nth-child(27) { animation-delay: 220ms; }
+.voice-bars span:nth-child(28) { animation-delay: 140ms; }
+.voice-bars span:nth-child(29) { animation-delay: 270ms; }
+.voice-bars span:nth-child(30) { animation-delay: 10ms; }
+
+@keyframes voice-bounce {
+  0%   { height: 15%; opacity: 0.4; }
+  50%  { height: 80%; opacity: 1; }
+  100% { height: 25%; opacity: 0.5; }
+}
+
+@keyframes voice-bounce-2 {
+  0%   { height: 30%; opacity: 0.5; }
+  50%  { height: 95%; opacity: 1; }
+  100% { height: 10%; opacity: 0.3; }
+}
+
+@keyframes voice-bounce-3 {
+  0%   { height: 50%; opacity: 0.6; }
+  50%  { height: 20%; opacity: 0.4; }
+  100% { height: 70%; opacity: 0.9; }
+}
+
 /* Utility for hiding scrollbar on carousels */
 .scrollbar-hide {
   -ms-overflow-style: none;
