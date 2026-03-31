@@ -44,8 +44,8 @@ Created `public/llms.txt` with full product description, capabilities, pages, an
 ### ~~5. No Canonical Tags~~ FIXED
 Added `<link rel="canonical">` to Layout.astro with dynamic URL generation.
 
-### 6. No Privacy Policy or Terms of Service
-The site collects emails and authenticates users via Gmail but has no privacy policy or terms. This is both a trust signal failure and a potential legal liability.
+### ~~6. No Privacy Policy or Terms of Service~~ FIXED
+Added /privacy and /terms pages modeled after fal.ai (YC W24). Covers AI-generated content ownership, third-party model providers, data collection, GDPR rights, and acceptable use. Linked from footer.
 
 ---
 
@@ -205,8 +205,8 @@ Also missing: Open Graph tags, Twitter Card tags, canonical URLs, sameAs entity 
 - [x] Add `public/_headers` file with security headers
 
 ### Week 2: Trust & Authority Foundation
-- [ ] Create Privacy Policy page (`/privacy`)
-- [ ] Create Terms of Service page (`/terms`)
+- [x] Create Privacy Policy page (`/privacy`)
+- [x] Create Terms of Service page (`/terms`)
 - [ ] Create About page (`/about`) with team info, backgrounds, and credentials
 - [ ] Create LinkedIn company page with complete profile
 - [ ] Create a Wikidata entity for CreativeClaw

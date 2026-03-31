@@ -1,0 +1,115 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout title="Privacy Policy — CreativeClaw" description="CreativeClaw's privacy policy. How we collect, use, and protect your information.">
+  <nav class="sticky top-0 z-50 bg-cream/90 backdrop-blur-md border-b border-cream-dark/40">
+    <div class="mx-auto max-w-[1200px] px-6 flex items-center justify-between h-16">
+      <a href="/">
+        <img src="/logo-with-text.png" alt="CreativeClaw" class="h-10" />
+      </a>
+      <div></div>
+    </div>
+  </nav>
+
+  <article class="px-4 md:px-6 py-16">
+    <div class="mx-auto max-w-[700px] prose-charcoal">
+      <h1 class="font-display text-3xl md:text-5xl tracking-tight text-charcoal mb-2">Privacy Policy</h1>
+      <p class="text-sm text-charcoal-light mb-12">Last updated: March 31, 2026</p>
+
+      <p class="text-charcoal-light leading-relaxed mb-8">
+        This Privacy Policy describes how CreativeClaw ("we," "us," or "our") collects, uses, discloses, and otherwise processes information when you access or use our website at creativeclaw.co and our AI-powered creative media generation services (collectively, the "Services").
+      </p>
+
+      <h2 class="font-display text-xl text-charcoal mt-10 mb-4">1. Information We Collect</h2>
+
+      <h3 class="font-semibold text-charcoal mt-6 mb-2">Information You Provide</h3>
+      <ul class="list-disc pl-6 text-charcoal-light leading-relaxed space-y-2 mb-4">
+        <li><strong>Account information:</strong> Email address and name when you sign up or authenticate via Google (Gmail) OAuth.</li>
+        <li><strong>Generated content:</strong> Text prompts you submit and media files (images, video, audio, 3D models) generated through our Services.</li>
+        <li><strong>Brand assets:</strong> Logos, colors, fonts, and style guidelines you upload to your brand library.</li>
+        <li><strong>Communications:</strong> Information you provide when you contact us at hello@creativeclaw.co.</li>
+      </ul>
+
+      <h3 class="font-semibold text-charcoal mt-6 mb-2">Information Collected Automatically</h3>
+      <ul class="list-disc pl-6 text-charcoal-light leading-relaxed space-y-2 mb-4">
+        <li><strong>Usage data:</strong> Pages visited, features used, generation requests, and interaction patterns.</li>
+        <li><strong>Device information:</strong> Browser type, operating system, and device identifiers.</li>
+        <li><strong>Analytics:</strong> We use PostHog for product analytics, which collects anonymized usage data, session recordings, and page interaction data.</li>
+      </ul>
+
+      <h2 class="font-display text-xl text-charcoal mt-10 mb-4">2. How We Use Your Information</h2>
+      <ul class="list-disc pl-6 text-charcoal-light leading-relaxed space-y-2 mb-4">
+        <li>Provide, maintain, and improve our Services, including processing your media generation requests through third-party AI models (via fal.ai).</li>
+        <li>Store and serve your generated assets via our CDN.</li>
+        <li>Authenticate your identity and manage your account.</li>
+        <li>Communicate with you about the Services, including technical updates and support.</li>
+        <li>Monitor and analyze usage trends to improve the product experience.</li>
+        <li>Detect, prevent, and address fraud, abuse, or technical issues.</li>
+        <li>Comply with legal obligations.</li>
+      </ul>
+
+      <h2 class="font-display text-xl text-charcoal mt-10 mb-4">3. AI-Generated Content</h2>
+      <p class="text-charcoal-light leading-relaxed mb-4">
+        When you use our Services, your text prompts are sent to third-party AI model providers (primarily via fal.ai) to generate media. We do not use your prompts or generated content to train AI models. Generated content is stored on our CDN and associated with your account. You retain ownership of your prompts and generated outputs, subject to the terms of our Terms of Service.
+      </p>
+      <p class="text-charcoal-light leading-relaxed mb-4">
+        AI-generated content may not be unique — other users submitting similar prompts may receive similar outputs. We make no guarantees regarding the originality or intellectual property status of generated content.
+      </p>
+
+      <h2 class="font-display text-xl text-charcoal mt-10 mb-4">4. How We Share Your Information</h2>
+      <p class="text-charcoal-light leading-relaxed mb-4">We do not sell your personal information. We may share information with:</p>
+      <ul class="list-disc pl-6 text-charcoal-light leading-relaxed space-y-2 mb-4">
+        <li><strong>Service providers:</strong> Including fal.ai (AI model hosting), Cloudflare (hosting and CDN), PostHog (analytics), and payment processors.</li>
+        <li><strong>Legal compliance:</strong> When required by law, legal process, or to protect our rights and safety.</li>
+        <li><strong>Business transfers:</strong> In connection with a merger, acquisition, or sale of assets.</li>
+      </ul>
+
+      <h2 class="font-display text-xl text-charcoal mt-10 mb-4">5. Data Storage and Security</h2>
+      <p class="text-charcoal-light leading-relaxed mb-4">
+        Your data is stored on servers in the United States via Cloudflare. Generated media assets are stored on Cloudflare R2. We implement reasonable security measures to protect your information, but no method of transmission over the internet is 100% secure.
+      </p>
+
+      <h2 class="font-display text-xl text-charcoal mt-10 mb-4">6. Data Retention</h2>
+      <p class="text-charcoal-light leading-relaxed mb-4">
+        We retain your account information and generated assets for as long as your account is active. You may request deletion of your account and associated data by contacting us at hello@creativeclaw.co. We will delete your data within 30 days of a verified request, except where retention is required by law.
+      </p>
+
+      <h2 class="font-display text-xl text-charcoal mt-10 mb-4">7. Cookies and Tracking</h2>
+      <p class="text-charcoal-light leading-relaxed mb-4">
+        We use PostHog for analytics, which may set cookies to track sessions and usage patterns. We do not use third-party advertising cookies. You can disable cookies in your browser settings, though this may affect functionality.
+      </p>
+
+      <h2 class="font-display text-xl text-charcoal mt-10 mb-4">8. Your Rights</h2>
+      <p class="text-charcoal-light leading-relaxed mb-4">Depending on your location, you may have the right to:</p>
+      <ul class="list-disc pl-6 text-charcoal-light leading-relaxed space-y-2 mb-4">
+        <li>Access, correct, or delete your personal information.</li>
+        <li>Object to or restrict certain processing of your data.</li>
+        <li>Request a copy of your data in a portable format.</li>
+        <li>Withdraw consent where processing is based on consent.</li>
+      </ul>
+      <p class="text-charcoal-light leading-relaxed mb-4">
+        To exercise these rights, contact us at hello@creativeclaw.co.
+      </p>
+
+      <h2 class="font-display text-xl text-charcoal mt-10 mb-4">9. Children's Privacy</h2>
+      <p class="text-charcoal-light leading-relaxed mb-4">
+        Our Services are not intended for individuals under the age of 18. We do not knowingly collect personal information from children.
+      </p>
+
+      <h2 class="font-display text-xl text-charcoal mt-10 mb-4">10. Changes to This Policy</h2>
+      <p class="text-charcoal-light leading-relaxed mb-4">
+        We may update this Privacy Policy from time to time. We will notify you of material changes by updating the "Last updated" date at the top of this page.
+      </p>
+
+      <h2 class="font-display text-xl text-charcoal mt-10 mb-4">11. Contact Us</h2>
+      <p class="text-charcoal-light leading-relaxed mb-4">
+        If you have questions about this Privacy Policy, contact us at:<br />
+        <a href="mailto:hello@creativeclaw.co" class="text-claude-orange hover:underline">hello@creativeclaw.co</a>
+      </p>
+    </div>
+  </article>
+
+  <Footer />
+</Layout>
