@@ -70,7 +70,7 @@
       <div class="relative z-10 bg-surface rounded-[24px] shadow-2xl max-w-xl mx-auto border border-cream-dark/40">
         <!-- Input area -->
         <div class="p-5 md:p-6 min-h-[80px] text-left">
-          <span id="hero-typing" class="text-base md:text-lg text-charcoal leading-relaxed"></span><span id="hero-cursor" class="inline-block w-[2px] h-5 bg-charcoal/60 align-middle ml-0.5 animate-pulse"></span>
+          <span id="hero-typing" class="text-base md:text-lg text-charcoal leading-relaxed">Create an Instagram Reel, a YouTube video, and a Facebook post for our spring beauty launch. Use our brand colors and keep it on-brand.</span><span id="hero-cursor" class="inline-block w-[2px] h-5 bg-charcoal/60 align-middle ml-0.5 animate-pulse"></span>
         </div>
 
         <!-- Bottom bar -->
@@ -144,6 +144,9 @@
     const claudeThinking = document.getElementById('claude-thinking');
 
     if (!typingEl || !sendBtn || !claudeThinking) return;
+
+    // Clear the server-rendered text before animating
+    typingEl.textContent = '';
 
     const tl = gsap.timeline({ delay: 0.8 });
 
