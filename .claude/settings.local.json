@@ -1,0 +1,28 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(pnpm add:*)",
+      "Bash(pnpm studio:*)",
+      "Bash(pnpm exec:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "mcp__claude_ai_CreativeClaw__list_models",
+      "mcp__claude_ai_CreativeClaw__generate_image",
+      "mcp__claude_ai_CreativeClaw__load_image",
+      "Bash(pnpm build:*)",
+      "Bash(ls dist/sitemap*.xml dist/robots.txt dist/llms.txt)",
+      "mcp__claude_ai_CreativeClaw__get_model_params",
+      "mcp__claude_ai_CreativeClaw__upload_asset",
+      "mcp__claude_ai_CreativeClaw__get_upload_url",
+      "Bash(curl:*)",
+      "mcp__claude_ai_CreativeClaw__confirm_upload",
+      "mcp__claude_ai_CreativeClaw__edit_image",
+      "mcp__claude_ai_CreativeClaw__search_assets",
+      "Bash(CLOUDFLARE_ACCOUNT_ID=ea42f6a70241dee229e264a740588f67 pnpm exec wrangler pages deploy dist --project-name creative-claw --branch main --commit-dirty=true)",
+      "Bash(git check-ignore:*)",
+      "Bash(ls public/og-image*)",
+      "Bash(ls dist/og-image*)",
+      "Bash(pnpm run:*)"
+    ]
+  }
+}
