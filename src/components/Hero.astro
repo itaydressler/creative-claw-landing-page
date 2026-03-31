@@ -17,7 +17,7 @@
     <!-- CTAs -->
     <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
       <a
-        href="#waitlist"
+        href="#get-started"
         class="rounded-full bg-charcoal text-white text-base font-semibold px-8 py-4 hover:bg-charcoal/90 transition-colors"
       >
         Start Creating
@@ -129,7 +129,7 @@
 
   const PROMPT = "Create an Instagram Reel, a YouTube video, and a Facebook post for our spring beauty launch. Use our brand colors and keep it on-brand.";
 
-  // Make "Let's go" button open the beta dialog
+  // Make "Let's go" button open the get-started dialog
   const heroSendBtn = document.getElementById('hero-send-btn');
   heroSendBtn?.addEventListener('click', () => {
     (window as any).posthog?.capture('cta_click', { source: 'hero_lets_go' });

@@ -1,7 +1,7 @@
 ---
 ---
 
-<!-- Beta signup dialog -->
+<!-- Get Started dialog -->
 <div id="beta-dialog-backdrop" class="fixed inset-0 z-50 hidden items-center justify-center bg-charcoal/50 backdrop-blur-sm p-4">
   <div id="beta-dialog" class="bg-surface rounded-[24px] shadow-2xl w-full max-w-md p-8 relative opacity-0 scale-95">
     <!-- Close button -->
@@ -14,12 +14,12 @@
     <!-- Logo -->
     <div class="flex items-center gap-3 mb-6">
       <img src="/logo.png" alt="CreativeClaw" class="w-8 h-8" />
-      <span class="font-display text-lg text-charcoal">Join the Beta</span>
+      <span class="font-display text-lg text-charcoal">Get Started</span>
     </div>
 
     <!-- Description -->
     <p class="text-sm text-charcoal-light leading-relaxed mb-6">
-      Get early access to CreativeClaw. We'll notify you when it's your turn.
+      Tell us where you'll use CreativeClaw and we'll get you set up.
     </p>
 
     <!-- Form -->
@@ -70,7 +70,7 @@
         type="submit"
         class="w-full rounded-full bg-claude-orange text-white text-sm font-semibold py-3.5 hover:bg-claude-orange/90 transition-colors mt-2"
       >
-        Join the Beta
+        Get Started
       </button>
     </form>
 
@@ -81,8 +81,11 @@
           <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
         </svg>
       </div>
-      <h3 class="font-display text-xl text-charcoal">You're on the list!</h3>
-      <p class="mt-2 text-sm text-charcoal-light">We'll reach out when it's your turn.</p>
+      <h3 class="font-display text-xl text-charcoal">You're in!</h3>
+      <p class="mt-2 text-sm text-charcoal-light">Let's get you connected.</p>
+      <a id="beta-next-steps" href="/how-to-connect" class="mt-4 inline-block rounded-full bg-claude-orange text-white text-sm font-semibold px-6 py-3 hover:bg-claude-orange/90 transition-colors">
+        Installation Guide &rarr;
+      </a>
     </div>
 
     <p class="mt-4 text-xs text-charcoal-light/60 text-center">
@@ -123,8 +126,8 @@
       });
     }
 
-    // Open on any "join beta" / "join waitlist" link
-    document.querySelectorAll('a[href="#waitlist"], a[href="#beta"]').forEach(el => {
+    // Open on any "get started" link
+    document.querySelectorAll('a[href="#waitlist"], a[href="#beta"], a[href="#get-started"]').forEach(el => {
       el.addEventListener('click', (e) => {
         e.preventDefault();
         window.posthog?.capture('cta_click', { source: (e.currentTarget as HTMLElement)?.closest('section')?.id || 'unknown' });
@@ -165,8 +168,14 @@
       const platform = (form.querySelector('input[name="platform"]:checked') as HTMLInputElement)?.value;
 
       // Track submission
-      window.posthog?.capture('beta_signup', { email, platform });
+      window.posthog?.capture('signup', { email, platform });
       window.posthog?.identify(email, { platform });
+
+      // Set the next-steps link to point to the right platform section
+      const nextStepsLink = document.getElementById('beta-next-steps') as HTMLAnchorElement | null;
+      if (nextStepsLink && platform) {
+        nextStepsLink.href = `/how-to-connect#${platform}`;
+      }
 
       // Send to backend (fire and forget, don't block UI)
       fetch('https://app.creativeclaw.co/api/form-submissions', {
