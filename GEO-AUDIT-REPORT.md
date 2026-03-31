@@ -89,11 +89,11 @@ No IndexNow protocol for real-time Bing content change notifications.
 
 ## Low Priority Issues
 
-### 17. Video Loading Competition
-7+ autoplay videos on the homepage compete for bandwidth. Below-the-fold videos should use `preload="none"`.
+### ~~17. Video Loading Competition~~ FIXED
+Below-fold videos now use `preload="none"` with Intersection Observer for lazy autoplay/pause on scroll.
 
-### 18. Font Preloading Missing
-No `<link rel="preload">` for critical above-the-fold fonts (Larken, Hellix).
+### ~~18. Font Preloading Missing~~ FIXED
+Added `<link rel="preload">` for Larken and Hellix woff2 fonts.
 
 ### 19. Meta Description Could Be Stronger
 Current: "CreativeClaw -- The creative studio inside Claude. Generate images, video, audio, 3D with every top AI model." (110 chars) -- could include more specific differentiators.

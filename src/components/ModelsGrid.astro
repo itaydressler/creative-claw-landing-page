@@ -31,7 +31,7 @@ const rightModels = [
           style={`transform: rotate(${model.rotation}); top: ${model.top}; left: ${model.left}; z-index: ${model.z};`}
         >
           {model.video ? (
-            <video autoplay loop muted playsinline class="w-full aspect-[4/3] object-cover">
+            <video loop muted playsinline preload="none" class="w-full aspect-[4/3] object-cover lazy-video">
               <source src={model.video} type="video/mp4" />
             </video>
           ) : (
@@ -51,7 +51,7 @@ const rightModels = [
           style={`transform: rotate(${model.rotation}); top: ${model.top}; right: ${model.right}; z-index: ${model.z};`}
         >
           {model.video ? (
-            <video autoplay loop muted playsinline class="w-full aspect-[4/3] object-cover">
+            <video loop muted playsinline preload="none" class="w-full aspect-[4/3] object-cover lazy-video">
               <source src={model.video} type="video/mp4" />
             </video>
           ) : (
