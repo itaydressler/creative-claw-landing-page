@@ -11,7 +11,7 @@ const links = [
   <div class="mx-auto max-w-[1200px] px-6 flex items-center justify-between h-16">
     <!-- Logo -->
     <a href="/">
-      <img src="/logo-with-text.png" alt="CreativeClaw" class="h-10" />
+      <img src="/logo-with-text.png" alt="CreativeClaw" class="h-10" width="994" height="256" />
     </a>
 
     <!-- Links (hidden on mobile) -->
@@ -23,12 +23,67 @@ const links = [
       ))}
     </div>
 
-    <!-- CTA -->
+    <!-- Mobile menu button -->
+    <button
+      id="mobile-menu-btn"
+      class="md:hidden w-10 h-10 flex items-center justify-center rounded-lg hover:bg-cream-dark/30 transition-colors"
+      aria-label="Open menu"
+    >
+      <svg id="menu-icon-open" class="w-5 h-5 text-charcoal" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+      </svg>
+      <svg id="menu-icon-close" class="w-5 h-5 text-charcoal hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+      </svg>
+    </button>
+
+    <!-- CTA (hidden on mobile, shown in mobile menu) -->
     <a
       href="#get-started"
-      class="rounded-full bg-charcoal text-white text-sm font-semibold px-6 py-2.5 hover:bg-charcoal/90 transition-colors"
+      class="hidden md:inline-block rounded-full bg-charcoal text-white text-sm font-semibold px-6 py-2.5 hover:bg-charcoal/90 transition-colors"
     >
       Start Creating
     </a>
   </div>
+
+  <!-- Mobile menu -->
+  <div id="mobile-menu" class="md:hidden hidden border-t border-cream-dark/40">
+    <div class="px-6 py-4 space-y-1">
+      {links.map(link => (
+        <a href={link.href} class="block py-2.5 text-base font-semibold text-charcoal-light hover:text-charcoal transition-colors mobile-menu-link">
+          {link.label}
+        </a>
+      ))}
+      <a
+        href="#get-started"
+        class="block mt-3 text-center rounded-full bg-charcoal text-white text-sm font-semibold px-6 py-3 hover:bg-charcoal/90 transition-colors mobile-menu-link"
+      >
+        Start Creating
+      </a>
+    </div>
+  </div>
 </nav>
+
+<script>
+  const btn = document.getElementById('mobile-menu-btn');
+  const menu = document.getElementById('mobile-menu');
+  const iconOpen = document.getElementById('menu-icon-open');
+  const iconClose = document.getElementById('menu-icon-close');
+
+  btn?.addEventListener('click', () => {
+    const isOpen = !menu?.classList.contains('hidden');
+    menu?.classList.toggle('hidden');
+    iconOpen?.classList.toggle('hidden');
+    iconClose?.classList.toggle('hidden');
+    btn.setAttribute('aria-label', isOpen ? 'Open menu' : 'Close menu');
+  });
+
+  // Close menu when a link is clicked
+  document.querySelectorAll('.mobile-menu-link').forEach(link => {
+    link.addEventListener('click', () => {
+      menu?.classList.add('hidden');
+      iconOpen?.classList.remove('hidden');
+      iconClose?.classList.add('hidden');
+    });
+  });
+</script>

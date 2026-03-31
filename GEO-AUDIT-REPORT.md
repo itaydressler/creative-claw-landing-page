@@ -73,11 +73,11 @@ All pages now show "Last updated" date in footer (build-time generated). Sitemap
 ### ~~12. Hero Prompt Text Invisible to Crawlers~~ FIXED
 Hero text is now server-rendered in the HTML and cleared by JS before the typing animation starts.
 
-### 13. No Mobile Navigation
-Navigation links are hidden on mobile with no hamburger menu. Mobile users only see the logo and "Start Creating" CTA.
+### ~~13. No Mobile Navigation~~ FIXED
+Added hamburger menu with slide-down nav panel. Links auto-close menu on click. CTA button included in mobile menu.
 
-### 14. Missing Image Dimensions
-Zero `<img>` tags have explicit `width`/`height` HTML attributes. All sizing is via CSS, risking CLS before CSS loads.
+### ~~14. Missing Image Dimensions~~ FIXED
+Added width/height attributes to all major content images (~30 images across Hero, OnBrand, UseCases, ValueProps, HowItWorks, IterationAnimation, how-to-connect).
 
 ### ~~15. Missing Security Headers~~ FIXED
 Added `public/_headers` with X-Frame-Options, X-Content-Type-Options, Referrer-Policy, Permissions-Policy, X-XSS-Protection.
@@ -224,8 +224,8 @@ Also missing: Open Graph tags, Twitter Card tags, canonical URLs, sameAs entity 
 - [ ] Publish comparison content: "CreativeClaw vs. Using Individual AI Tools"
 - [ ] Add definition-style content patterns for key terms
 - [x] Fix hero text to be visible without JavaScript
-- [ ] Add mobile navigation (hamburger menu)
-- [ ] Add image width/height attributes for CLS prevention
+- [x] Add mobile navigation (hamburger menu)
+- [x] Add image width/height attributes for CLS prevention
 
 ---
 
