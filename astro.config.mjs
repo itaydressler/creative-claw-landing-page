@@ -12,5 +12,5 @@ export default defineConfig({
   vite: {
     plugins: [tailwindcss()]
   },
-  integrations: [sitemap(), mdx()]
+  integrations: [sitemap({ lastmod: new Date() }), mdx()]
 });

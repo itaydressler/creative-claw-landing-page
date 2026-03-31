@@ -16,7 +16,7 @@ import Footer from '../components/Footer.astro';
 import BetaDialog from '../components/BetaDialog.astro';
 ---
 
-<Layout title="CreativeClaw — The Creative Studio Inside Claude">
+<Layout title="CreativeClaw — The Creative Studio Inside Claude" lastUpdated={new Date()}>
   <!-- SoftwareApplication Schema -->
   <script slot="head" type="application/ld+json" set:html={JSON.stringify({
     "@context": "https://schema.org",

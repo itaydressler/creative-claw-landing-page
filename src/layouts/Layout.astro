@@ -5,9 +5,10 @@ interface Props {
   title: string;
   description?: string;
   ogImage?: string;
+  lastUpdated?: Date;
 }
 
-const { title, description = 'CreativeClaw — The creative studio inside Claude. Generate images, video, audio, 3D with every top AI model.', ogImage = '/og-image.png' } = Astro.props;
+const { title, description = 'CreativeClaw — The creative studio inside Claude. Generate images, video, audio, 3D with every top AI model.', ogImage = '/og-image.png', lastUpdated } = Astro.props;
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 const ogImageURL = new URL(ogImage, Astro.site);
@@ -33,6 +34,7 @@ const ogImageURL = new URL(ogImage, Astro.site);
     <meta property="og:description" content={description} />
     <meta property="og:image" content={ogImageURL} />
     <meta property="og:site_name" content="CreativeClaw" />
+    {lastUpdated && <meta property="article:modified_time" content={lastUpdated.toISOString()} />}
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />

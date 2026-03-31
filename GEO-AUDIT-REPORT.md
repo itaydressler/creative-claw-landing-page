@@ -63,8 +63,8 @@ Only 2 pages total (~1,550 words). No educational content, no tutorials, no comp
 ### 10. FAQ Answers Lack Depth and Statistics
 Most FAQ answers are 1-2 sentences with no concrete data. The entire site contains exactly one number: "1,000+" models. Zero pricing figures, user counts, performance benchmarks, or comparison data.
 
-### 11. No Publication or Updated Dates
-Neither page shows a publication date or last-updated date. AI platforms cannot assess content freshness.
+### ~~11. No Publication or Updated Dates~~ FIXED
+All pages now show "Last updated" date in footer (build-time generated). Sitemap includes `<lastmod>` dates. `article:modified_time` meta tag added to all pages.
 
 ---
 
@@ -201,7 +201,7 @@ Also missing: Open Graph tags, Twitter Card tags, canonical URLs, sameAs entity 
 - [x] Add FAQPage JSON-LD to FAQ component
 - [x] Add BreadcrumbList + WebPage JSON-LD to how-to-connect page
 - [x] Create `public/llms.txt`
-- [ ] Verify sitemap.xml is accessible at live URL
+- [x] Verify sitemap.xml is accessible at live URL (with lastmod dates)
 - [x] Add `public/_headers` file with security headers
 
 ### Week 2: Trust & Authority Foundation
@@ -210,7 +210,7 @@ Also missing: Open Graph tags, Twitter Card tags, canonical URLs, sameAs entity 
 - [ ] Create About page (`/about`) with team info, backgrounds, and credentials
 - [ ] Create LinkedIn company page with complete profile
 - [ ] Create a Wikidata entity for CreativeClaw
-- [ ] Add visible publication/update dates to all pages
+- [x] Add visible publication/update dates to all pages
 
 ### Week 3: External Presence & Content
 - [ ] Launch on Product Hunt
