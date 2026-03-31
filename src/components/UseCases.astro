@@ -44,10 +44,14 @@
           <!-- Social Media Posts -->
           <div class="bg-pink rounded-[24px] p-7 md:p-8 relative overflow-hidden min-h-[220px] flex flex-col justify-end">
             <div class="flex-1 relative mb-4">
-              <div class="flex items-center justify-center md:justify-end gap-0 absolute inset-0">
-                <img src="/use-cases/instagram-post.webp" alt="Instagram post mockup" class="drop-shadow-2xl rotate-[-6deg] z-10 rounded-lg w-[28%] md:w-[30%] -mr-4" width="1317" height="1687" />
-                <img src="/use-cases/linkedin-post.webp" alt="LinkedIn post mockup" class="drop-shadow-2xl rotate-[5deg] z-20 rounded-lg w-[28%] md:w-[30%] -ml-2" width="1317" height="1687" />
+              <!-- Mobile: centered flex layout -->
+              <div class="flex items-center justify-center absolute inset-0 md:hidden">
+                <img src="/use-cases/instagram-post.webp" alt="Instagram post mockup" class="drop-shadow-2xl rotate-[-6deg] z-10 rounded-lg w-[28%] -mr-3" width="1317" height="1687" />
+                <img src="/use-cases/linkedin-post.webp" alt="LinkedIn post mockup" class="drop-shadow-2xl rotate-[5deg] z-20 rounded-lg w-[28%] -ml-1" width="1317" height="1687" />
               </div>
+              <!-- Desktop: original absolute positioning -->
+              <img src="/use-cases/instagram-post.webp" alt="Instagram post mockup" class="hidden md:block absolute drop-shadow-2xl rotate-[-6deg] z-10 rounded-lg" style="width: 30%; right: 18%; top: -22px;" width="1317" height="1687" />
+              <img src="/use-cases/linkedin-post.webp" alt="LinkedIn post mockup" class="hidden md:block absolute drop-shadow-2xl rotate-[5deg] z-20 rounded-lg" style="width: 30%; right: 2%; top: -20px;" width="1317" height="1687" />
             </div>
             <div class="relative z-10">
               <h3 class="font-display text-2xl md:text-3xl text-pink-ink">Social Media Posts</h3>
