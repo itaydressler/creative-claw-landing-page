@@ -1,18 +1,16 @@
 ---
 const quickLinks = [
-  { label: 'Use Cases', href: '/#use-cases' },
-  { label: 'How It Works', href: '/#how-it-works' },
-  { label: 'Models', href: '/#models' },
-  { label: 'How to Connect', href: '/how-to-connect' },
+  { label: "Use Cases", href: "/#use-cases" },
+  { label: "How It Works", href: "/#how-it-works" },
+  { label: "Models", href: "/#models" },
+  { label: "How to Connect", href: "/how-to-connect" },
 ];
 
 const contactLinks = [
-  { label: 'hello@creativeclaw.co', href: 'mailto:hello@creativeclaw.co' },
+  { label: "hello@creativeclaw.co", href: "mailto:hello@creativeclaw.co" },
 ];
 
-const socialLinks = [
-  { label: 'X', href: 'https://x.com/CreativeClawCo' },
-];
+const socialLinks = [{ label: "X", href: "https://x.com/CreativeClawCo" }];
 ---
 
 <footer class="px-4 py-4 md:px-6 md:py-6">
@@ -23,7 +21,11 @@ const socialLinks = [
         <!-- Logo -->
         <div class="col-span-2 md:col-span-1">
           <a href="/" class="inline-block">
-            <img src="/logo.png" alt="CreativeClaw" class="w-10 h-10" />
+            <img
+              src="/logo.png"
+              alt="CreativeClaw"
+              class="w-10 h-10 md:w-30 md:h-30"
+            />
           </a>
         </div>
 
@@ -31,9 +33,16 @@ const socialLinks = [
         <div>
           <h4 class="font-semibold text-sm text-white mb-5">Quick Links</h4>
           <nav class="space-y-3">
-            {quickLinks.map(link => (
-              <a href={link.href} class="block text-sm text-white/60 hover:text-white transition-colors">{link.label}</a>
-            ))}
+            {
+              quickLinks.map((link) => (
+                <a
+                  href={link.href}
+                  class="block text-sm text-white/60 hover:text-white transition-colors"
+                >
+                  {link.label}
+                </a>
+              ))
+            }
           </nav>
         </div>
 
@@ -41,9 +50,16 @@ const socialLinks = [
         <div>
           <h4 class="font-semibold text-sm text-white mb-5">Contact</h4>
           <nav class="space-y-3">
-            {contactLinks.map(link => (
-              <a href={link.href} class="block text-sm text-white/60 hover:text-white transition-colors">{link.label}</a>
-            ))}
+            {
+              contactLinks.map((link) => (
+                <a
+                  href={link.href}
+                  class="block text-sm text-white/60 hover:text-white transition-colors"
+                >
+                  {link.label}
+                </a>
+              ))
+            }
           </nav>
         </div>
 
@@ -51,19 +67,26 @@ const socialLinks = [
         <div>
           <h4 class="font-semibold text-sm text-white mb-5">Follow us</h4>
           <nav class="space-y-3">
-            {socialLinks.map(link => (
-              <a href={link.href} class="flex items-center gap-2 text-sm text-white/60 hover:text-white transition-colors">
-                {link.label}
-              </a>
-            ))}
+            {
+              socialLinks.map((link) => (
+                <a
+                  href={link.href}
+                  class="flex items-center gap-2 text-sm text-white/60 hover:text-white transition-colors"
+                >
+                  {link.label}
+                </a>
+              ))
+            }
           </nav>
         </div>
       </div>
     </div>
 
     <!-- Giant brand name -->
-    <div class="relative overflow-hidden px-4 md:px-8">
-      <div class="font-display text-white text-[18vw] md:text-[15vw] leading-[0.85] tracking-[-0.04em] whitespace-nowrap select-none pb-0 -mb-[0.15em]">
+    <div class="relative px-4 md:px-8">
+      <div
+        class="font-display text-white text-[18vw] md:text-[15vw] leading-[0.85] tracking-[-0.04em] whitespace-nowrap select-none pb-0 -mb-[0.15em]"
+      >
         Creative Claw
       </div>
     </div>
