@@ -1,0 +1,39 @@
+# CreativeClaw
+
+> The creative studio inside Claude. A remote MCP that gives Claude, Claude Code, and OpenClaw access to every top AI media generation model through a single plugin.
+
+## What is CreativeClaw?
+
+CreativeClaw is a Model Context Protocol (MCP) server that connects AI assistants to every top AI media generation model. Users install one plugin URL, authenticate, and can generate images, video, audio, 3D objects, remove backgrounds, and manage brand assets — all without leaving their AI assistant.
+
+## Supported Platforms
+
+- Claude Desktop / Cowork
+- Claude Code (CLI)
+- OpenClaw
+
+## Capabilities
+
+- Image generation (Flux, Midjourney, DALL-E, Seedream)
+- Video generation (Runway, Kling, Seedance)
+- Audio and speech generation (ElevenLabs)
+- 3D model generation
+- Background removal
+- Brand asset management (save logos, colors, fonts, style guidelines)
+- Multi-variant generation with automatic model comparison
+- Remotion video project generation
+
+## Pricing
+
+Usage-based — pay only for what you generate. No monthly subscriptions or commitments.
+
+## Pages
+
+- [Homepage](https://creativeclaw.co): Product overview, use cases, models, pricing, FAQ
+- [How to Connect](https://creativeclaw.co/how-to-connect): Setup instructions for Claude Desktop, Claude Code, and OpenClaw
+
+## Contact
+
+- Email: hello@creativeclaw.co
+- X/Twitter: https://x.com/CreativeClawCo
+- GitHub: https://github.com/CreativeClawCo

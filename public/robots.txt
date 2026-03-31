@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://creativeclaw.co/sitemap-index.xml

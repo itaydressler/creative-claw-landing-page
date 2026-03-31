@@ -3,7 +3,17 @@ import Layout from '../layouts/Layout.astro';
 import Footer from '../components/Footer.astro';
 ---
 
-<Layout title="How to Connect — CreativeClaw">
+<Layout title="How to Connect — CreativeClaw" description="Get CreativeClaw running in Claude Desktop, Claude Code, or OpenClaw in under a minute. Step-by-step setup instructions.">
+  <!-- BreadcrumbList Schema -->
+  <script slot="head" type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://creativeclaw.co" },
+      { "@type": "ListItem", "position": 2, "name": "How to Connect", "item": "https://creativeclaw.co/how-to-connect" }
+    ]
+  })} />
+
   <!-- Nav (simplified for subpage) -->
   <nav class="sticky top-0 z-50 bg-cream/90 backdrop-blur-md border-b border-cream-dark/40">
     <div class="mx-auto max-w-[1200px] px-6 flex items-center justify-between h-16">

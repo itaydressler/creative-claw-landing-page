@@ -4,9 +4,13 @@ import '../styles/global.css'
 interface Props {
   title: string;
   description?: string;
+  ogImage?: string;
 }
 
-const { title, description = 'CreativeClaw — The creative studio inside Claude. Generate images, video, audio, 3D with every top AI model.' } = Astro.props;
+const { title, description = 'CreativeClaw — The creative studio inside Claude. Generate images, video, audio, 3D with every top AI model.', ogImage = '/og-image.png' } = Astro.props;
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const ogImageURL = new URL(ogImage, Astro.site);
 ---
 
 <!doctype html>
@@ -19,10 +23,63 @@ const { title, description = 'CreativeClaw — The creative studio inside Claude
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={description} />
     <meta name="generator" content={Astro.generator} />
+    <link rel="canonical" href={canonicalURL} />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImageURL} />
+    <meta property="og:site_name" content="CreativeClaw" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@CreativeClawCo" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImageURL} />
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Fragment+Mono&display=swap" rel="stylesheet" />
     <title>{title}</title>
+
+    <!-- Structured Data: Organization -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "CreativeClaw",
+      "url": "https://creativeclaw.co",
+      "logo": "https://creativeclaw.co/logo.png",
+      "description": "CreativeClaw is a remote MCP that gives Claude, Claude Code, and OpenClaw access to every top AI media generation model. Generate images, video, audio, and 3D objects without leaving your AI assistant.",
+      "email": "hello@creativeclaw.co",
+      "sameAs": [
+        "https://x.com/CreativeClawCo",
+        "https://github.com/CreativeClawCo"
+      ],
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "email": "hello@creativeclaw.co",
+        "contactType": "customer support"
+      }
+    })} />
+
+    <!-- Structured Data: WebSite -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "CreativeClaw",
+      "url": "https://creativeclaw.co",
+      "description": "The creative studio inside Claude. Generate images, video, audio, 3D with every top AI model.",
+      "publisher": {
+        "@type": "Organization",
+        "name": "CreativeClaw",
+        "url": "https://creativeclaw.co"
+      }
+    })} />
+
+    <slot name="head" />
     <!-- PostHog — production only -->
     <script>
       if (window.location.hostname === 'creativeclaw.co' || window.location.hostname === 'www.creativeclaw.co') {

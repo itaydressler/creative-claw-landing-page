@@ -17,6 +17,56 @@ import BetaDialog from '../components/BetaDialog.astro';
 ---
 
 <Layout title="CreativeClaw — The Creative Studio Inside Claude">
+  <!-- SoftwareApplication Schema -->
+  <script slot="head" type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "CreativeClaw",
+    "description": "A remote MCP plugin that gives Claude access to every top AI media generation model — Flux, Midjourney, DALL-E, Runway, ElevenLabs, and more. Generate images, video, audio, and 3D objects without leaving Claude.",
+    "url": "https://creativeclaw.co",
+    "applicationCategory": "MultimediaApplication",
+    "operatingSystem": "Web",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD",
+      "description": "Usage-based pricing — pay only for what you generate. No monthly subscriptions.",
+      "availability": "https://schema.org/InStock"
+    },
+    "featureList": [
+      "AI image generation via Flux, Midjourney, DALL-E",
+      "AI video generation via Runway, Kling",
+      "AI audio generation via ElevenLabs",
+      "3D model generation",
+      "Background removal",
+      "Brand asset management",
+      "Multi-variant generation across models"
+    ],
+    "softwareRequirements": "Claude Desktop, Claude Code, or OpenClaw with MCP support",
+    "creator": {
+      "@type": "Organization",
+      "name": "CreativeClaw",
+      "url": "https://creativeclaw.co"
+    }
+  })} />
+
+  <!-- FAQPage Schema -->
+  <script slot="head" type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      { "@type": "Question", "name": "What is an MCP?", "acceptedAnswer": { "@type": "Answer", "text": "MCP (Model Context Protocol) is a standard that lets AI assistants like Claude connect to external tools and services. CreativeClaw is a remote MCP server — you add one URL to Claude, and it gains access to all our creative tools." } },
+      { "@type": "Question", "name": "Which AI models can I use?", "acceptedAnswer": { "@type": "Answer", "text": "CreativeClaw gives you access to Flux, Midjourney, DALL-E, Runway, ElevenLabs, Seedream, Kling, and many more. New models are added regularly." } },
+      { "@type": "Question", "name": "Do I need a Claude Pro subscription?", "acceptedAnswer": { "@type": "Answer", "text": "CreativeClaw works with any Claude plan that supports MCP connections, including Claude Desktop and Claude Code. Your Claude subscription is separate from CreativeClaw usage." } },
+      { "@type": "Question", "name": "How does pricing work?", "acceptedAnswer": { "@type": "Answer", "text": "CreativeClaw uses usage-based pricing — you pay only for what you generate. No monthly subscriptions or commitments." } },
+      { "@type": "Question", "name": "Can I use CreativeClaw with OpenClaw?", "acceptedAnswer": { "@type": "Answer", "text": "Yes! CreativeClaw works with any MCP-compatible client, including Claude Desktop, Claude Code, and OpenClaw." } },
+      { "@type": "Question", "name": "Where are my generated files stored?", "acceptedAnswer": { "@type": "Answer", "text": "All generated media is stored on CreativeClaw's CDN. Each file gets a permanent URL you can use anywhere — in documents, websites, presentations, or social media." } },
+      { "@type": "Question", "name": "How does multi-variant generation work?", "acceptedAnswer": { "@type": "Answer", "text": "CreativeClaw's built-in skills tell Claude to generate multiple options using different AI models (e.g. Flux, Midjourney, DALL-E), compare them, and pick the best one. You get studio-quality results without manually tweaking prompts across tools." } },
+      { "@type": "Question", "name": "How do I keep generated content on-brand?", "acceptedAnswer": { "@type": "Answer", "text": "Save your brand colors, fonts, logos, and style guidelines as reusable brand assets in CreativeClaw. Every future generation references your brand DNA automatically, so Claude produces on-brand content from the first try." } },
+      { "@type": "Question", "name": "What is Remotion and how does video generation work?", "acceptedAnswer": { "@type": "Answer", "text": "Remotion is a React-based framework for creating programmatic videos. CreativeClaw can generate Remotion video projects with on-brand templates, animations, and compositions that you can customize and render." } }
+    ]
+  })} />
+
   <Nav />
   <main>
     <Hero />
