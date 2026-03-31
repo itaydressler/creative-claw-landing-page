@@ -1,6 +1,8 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Footer from '../components/Footer.astro';
+
+const openclawMcpCmd = `openclaw mcp set creative-claw '{"url":"https://mcp.creativeclaw.co/mcp"}'`;
 ---
 
 <Layout title="How to Connect — CreativeClaw" description="Get CreativeClaw running in Claude Desktop, Claude Code, or OpenClaw in under a minute. Step-by-step setup instructions.">
@@ -252,17 +254,19 @@ import Footer from '../components/Footer.astro';
             <li class="flex gap-3">
               <span class="flex-shrink-0 w-7 h-7 rounded-full bg-claude-orange text-white text-xs font-semibold flex items-center justify-center mt-0.5">1</span>
               <div>
-                <p class="font-semibold text-charcoal text-sm">Open Settings</p>
-                <p class="text-charcoal-light text-sm mt-0.5">Navigate to <span class="font-mono text-xs bg-cream-dark/60 px-1.5 py-0.5 rounded">Settings</span> &rarr; <span class="font-mono text-xs bg-cream-dark/60 px-1.5 py-0.5 rounded">MCP Plugins</span>.</p>
+                <p class="font-semibold text-charcoal text-sm">Add the MCP</p>
+                <p class="text-charcoal-light text-sm mt-0.5">Run in your terminal:</p>
+                <div class="mt-1.5 bg-charcoal rounded-lg px-3 py-2 font-mono text-xs text-white/90 overflow-x-auto">
+                  <span class="text-white/40 select-none">$ </span>{openclawMcpCmd}
+                </div>
               </div>
             </li>
             <li class="flex gap-3">
               <span class="flex-shrink-0 w-7 h-7 rounded-full bg-claude-orange text-white text-xs font-semibold flex items-center justify-center mt-0.5">2</span>
               <div>
-                <p class="font-semibold text-charcoal text-sm">Add a new MCP</p>
-                <p class="text-charcoal-light text-sm mt-0.5">Click <span class="font-mono text-xs bg-cream-dark/60 px-1.5 py-0.5 rounded">Add MCP Plugin</span> and enter:</p>
+                <p class="font-semibold text-charcoal text-sm">Restart the gateway</p>
                 <div class="mt-1.5 bg-charcoal rounded-lg px-3 py-2 font-mono text-xs text-white/90 overflow-x-auto">
-                  https://mcp.creativeclaw.co/mcp
+                  <span class="text-white/40 select-none">$ </span>openclaw gateway restart
                 </div>
               </div>
             </li>
@@ -270,7 +274,7 @@ import Footer from '../components/Footer.astro';
               <span class="flex-shrink-0 w-7 h-7 rounded-full bg-claude-orange text-white text-xs font-semibold flex items-center justify-center mt-0.5">3</span>
               <div>
                 <p class="font-semibold text-charcoal text-sm">Authenticate</p>
-                <p class="text-charcoal-light text-sm mt-0.5">Click <span class="font-mono text-xs bg-cream-dark/60 px-1.5 py-0.5 rounded">Login</span> on the CreativeClaw MCP entry and sign in with Gmail.</p>
+                <p class="text-charcoal-light text-sm mt-0.5">When prompted in your first conversation, sign in with Gmail to connect your CreativeClaw account.</p>
               </div>
             </li>
             <li class="flex gap-3">
@@ -455,6 +459,74 @@ import Footer from '../components/Footer.astro';
               <p class="text-white/50 text-xs mt-4">&#10003; Plugin + Skills active!</p>
             </div>
           </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Plugin: OpenClaw -->
+  <section id="plugin-openclaw" class="px-4 md:px-6 pb-20 scroll-mt-24">
+    <div class="mx-auto max-w-[1200px]">
+      <div class="grid md:grid-cols-2 gap-10 md:gap-16 items-center">
+        <!-- OpenClaw icon -->
+        <div class="bg-coral/15 rounded-[20px] aspect-square max-w-[445px] max-h-[445px] flex items-center justify-center md:order-1 order-2">
+          <div class="flex flex-col items-center gap-4">
+            <div class="relative">
+              <div class="absolute inset-0 bg-coral/20 rounded-full blur-3xl scale-150"></div>
+              <img src="/icons/openclaw.svg" alt="OpenClaw" class="w-28 h-28 md:w-36 md:h-36 relative z-10" />
+            </div>
+            <div class="flex items-center gap-2 mt-2">
+              <svg class="w-5 h-5 text-purple-ink" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09z" /></svg>
+              <span class="text-sm font-semibold text-purple-ink">+ Skills</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Steps -->
+        <div class="bg-white rounded-[20px] border border-cream-dark/40 p-8 md:p-10 md:order-2 order-1">
+          <div class="flex items-center gap-4 mb-8">
+            <div class="w-12 h-12 rounded-xl bg-[#FFE5E5] flex items-center justify-center">
+              <img src="/icons/openclaw.svg" alt="OpenClaw" class="w-7 h-7" />
+            </div>
+            <div>
+              <h2 class="font-display text-2xl md:text-3xl text-charcoal">OpenClaw</h2>
+              <p class="text-sm text-charcoal-light mt-1">Install via Marketplace</p>
+            </div>
+          </div>
+
+          <ol class="space-y-5">
+            <li class="flex gap-3">
+              <span class="flex-shrink-0 w-7 h-7 rounded-full bg-purple text-purple-ink text-xs font-semibold flex items-center justify-center mt-0.5">1</span>
+              <div>
+                <p class="font-semibold text-charcoal text-sm">Add the Marketplace</p>
+                <div class="mt-1.5 bg-charcoal rounded-lg px-3 py-2 font-mono text-xs text-white/90 overflow-x-auto">
+                  <span class="text-white/40 select-none">$ </span>openclaw plugins marketplace add CreativeClawCo/creative-claw-marketplace
+                </div>
+              </div>
+            </li>
+            <li class="flex gap-3">
+              <span class="flex-shrink-0 w-7 h-7 rounded-full bg-purple text-purple-ink text-xs font-semibold flex items-center justify-center mt-0.5">2</span>
+              <div>
+                <p class="font-semibold text-charcoal text-sm">Install the Plugin</p>
+                <div class="mt-1.5 bg-charcoal rounded-lg px-3 py-2 font-mono text-xs text-white/90 overflow-x-auto">
+                  <span class="text-white/40 select-none">$ </span>openclaw plugins install creative-claw@creative-claw-marketplace
+                </div>
+              </div>
+            </li>
+            <li class="flex gap-3">
+              <span class="flex-shrink-0 w-7 h-7 rounded-full bg-purple text-purple-ink text-xs font-semibold flex items-center justify-center mt-0.5">3</span>
+              <div>
+                <p class="font-semibold text-charcoal text-sm">Restart the gateway</p>
+                <div class="mt-1.5 bg-charcoal rounded-lg px-3 py-2 font-mono text-xs text-white/90 overflow-x-auto">
+                  <span class="text-white/40 select-none">$ </span>openclaw gateway restart
+                </div>
+              </div>
+            </li>
+            <li class="flex gap-3">
+              <span class="flex-shrink-0 w-7 h-7 rounded-full bg-green text-green-ink text-xs font-semibold flex items-center justify-center mt-0.5">&#10003;</span>
+              <p class="font-semibold text-charcoal text-sm">Plugin + Skills active!</p>
+            </li>
+          </ol>
         </div>
       </div>
     </div>
